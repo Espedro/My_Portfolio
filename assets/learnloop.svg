@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">LearnLoop product preview</title>
+  <desc id="desc">A multi-role LMS preview with student, teacher, admin, and owner dashboards.</desc>
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <rect x="78" y="60" width="1044" height="555" rx="30" fill="#0f172a"/>
+  <rect x="118" y="103" width="234" height="469" rx="22" fill="#111c35"/>
+  <text x="150" y="158" fill="#ffffff" font-family="Inter, Arial" font-size="30" font-weight="900">LearnLoop</text>
+  <text x="150" y="193" fill="#94a3b8" font-family="Inter, Arial" font-size="17">Role-based LMS</text>
+  <rect x="150" y="248" width="170" height="38" rx="19" fill="#22c55e"/>
+  <text x="183" y="273" fill="#052e16" font-family="Inter, Arial" font-size="15" font-weight="900">Student</text>
+  <rect x="150" y="304" width="170" height="38" rx="19" fill="#1e293b"/>
+  <text x="183" y="329" fill="#cbd5e1" font-family="Inter, Arial" font-size="15" font-weight="800">Teacher</text>
+  <rect x="150" y="360" width="170" height="38" rx="19" fill="#1e293b"/>
+  <text x="183" y="385" fill="#cbd5e1" font-family="Inter, Arial" font-size="15" font-weight="800">Admin</text>
+  <rect x="150" y="416" width="170" height="38" rx="19" fill="#1e293b"/>
+  <text x="183" y="441" fill="#cbd5e1" font-family="Inter, Arial" font-size="15" font-weight="800">Owner</text>
+  <rect x="392" y="103" width="688" height="469" rx="22" fill="#ffffff"/>
+  <text x="442" y="165" fill="#0f172a" font-family="Inter, Arial" font-size="34" font-weight="900">Course dashboard</text>
+  <text x="442" y="200" fill="#64748b" font-family="Inter, Arial" font-size="19">One system, four permission-safe experiences.</text>
+  <rect x="442" y="246" width="270" height="118" rx="18" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text x="476" y="288" fill="#14532d" font-family="Inter, Arial" font-size="23" font-weight="900">Student path</text>
+  <text x="476" y="321" fill="#166534" font-family="Inter, Arial" font-size="17">Enroll - learn - quiz - certify</text>
+  <rect x="742" y="246" width="270" height="118" rx="18" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="776" y="288" fill="#1e3a8a" font-family="Inter, Arial" font-size="23" font-weight="900">Teacher studio</text>
+  <text x="776" y="321" fill="#1d4ed8" font-family="Inter, Arial" font-size="17">Courses, lessons, quizzes</text>
+  <rect x="442" y="394" width="570" height="94" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="476" y="433" fill="#0f172a" font-family="Inter, Arial" font-size="22" font-weight="900">RLS permissions as UX</text>
+  <text x="476" y="464" fill="#64748b" font-family="Inter, Arial" font-size="17">Every dashboard shows only the tools and data the role should touch.</text>
+</svg>

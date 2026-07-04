@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme =
+            stored ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Espedro Neptune | UX Engineer & Product Designer</title>
+    <meta
+      name="description"
+      content="Portfolio of Espedro Neptune, a UX engineer and product designer creating thoughtful product experiences with Figma, React, WordPress, and Shopify."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260709" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Espedro Neptune home">
+        <span class="brand-mark">EN</span>
+        <span>Espedro Neptune</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#toolbox">Toolbox</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-pressed="false"
+          aria-label="Switch to dark theme"
+        >
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4.6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <line x1="12" y1="1.8" x2="12" y2="4.4" />
+              <line x1="12" y1="19.6" x2="12" y2="22.2" />
+              <line x1="4.4" y1="4.4" x2="6.2" y2="6.2" />
+              <line x1="17.8" y1="17.8" x2="19.6" y2="19.6" />
+              <line x1="1.8" y1="12" x2="4.4" y2="12" />
+              <line x1="19.6" y1="12" x2="22.2" y2="12" />
+              <line x1="4.4" y1="19.6" x2="6.2" y2="17.8" />
+              <line x1="17.8" y1="6.2" x2="19.6" y2="4.4" />
+            </g>
+          </svg>
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="currentColor"
+              d="M20.4 14.7A8.6 8.6 0 0 1 9.3 3.6a.75.75 0 0 0-.9-1 10.1 10.1 0 1 0 12.9 12.9.75.75 0 0 0-1-.9Z"
+            />
+          </svg>
+        </button>
+        <a
+          class="header-cta"
+          href="assets/ESPEDRONEPTUNE_Resume.docx"
+          target="_blank"
+          rel="noreferrer"
+          >Resume</a
+        >
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Based in USA</p>
+          <h1 data-typewriter>
+            <span class="tw-line"
+              >I'm a UX Engineer,<span
+                class="typewriter-cursor"
+                aria-hidden="true"
+              ></span></span
+            ><br />
+            <span class="tw-line"
+              >Product Designer &amp;<span
+                class="typewriter-cursor"
+                aria-hidden="true"
+              ></span></span
+            ><br />
+            <span class="tw-line"
+              >AI Product Builder.<span
+                class="typewriter-cursor"
+                aria-hidden="true"
+              ></span
+            ></span>
+          </h1>
+          <p class="hero-text">
+            I combine user research, UX strategy, interaction design, and
+            front-end engineering to create products people love to use. By
+            integrating AI into my workflow, I help bring ideas to life faster
+            and build more intelligent digital experiences.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#work">View case studies</a>
+            <a
+              class="button secondary"
+              href="https://calendly.com/espedroneptune/30min"
+              target="_blank"
+              rel="noreferrer"
+              >Schedule a call</a
+            >
+          </div>
+          <dl class="metrics" aria-label="Portfolio highlights">
+            <div>
+              <dt data-count="8">00</dt>
+              <dd>strong case studies</dd>
+            </div>
+            <div>
+              <dt data-count="4">00</dt>
+              <dd>disciplines connected</dd>
+            </div>
+            <div>
+              <dt data-count="16">00</dt>
+              <dd>tools and technologies</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section intro" aria-label="Professional summary">
+        <p class="section-kicker">Profile</p>
+        <div class="intro-grid">
+          <h2>
+            Design judgment with the technical fluency to make the details hold
+            up.
+          </h2>
+          <p>
+            My work sits between discovery, interaction design, UI systems, and
+            implementation. I care about flows that are easy to understand,
+            interfaces that behave well across states, and product decisions
+            that survive real build constraints.
+          </p>
+        </div>
+      </section>
+
+      <section class="section work" id="work">
+        <div class="section-heading">
+          <p class="section-kicker">Selected work</p>
+          <h2>Recent case studies</h2>
+          <p>
+            Each project connects user problems, product structure, interface
+            decisions, and implementation-aware details so the value behind the
+            screens is easy to follow.
+          </p>
+        </div>
+
+        <div class="filter-bar" role="list" aria-label="Project filters">
+          <button class="filter is-active" type="button" data-filter="all">
+            All
+          </button>
+          <button class="filter" type="button" data-filter="product">
+            Product design
+          </button>
+          <button class="filter" type="button" data-filter="web">
+            Web experience
+          </button>
+          <button class="filter" type="button" data-filter="mobile">
+            Mobile app
+          </button>
+        </div>
+
+        <div class="project-grid">
+          <article
+            class="project-card reveal interactive-card"
+            data-category="product web"
+          >
+            <a class="project-image" href="case-studies/footlakay.html">
+              <img
+                src="assets/footlakay-live.png"
+                alt="FootLakay live product homepage preview"
+              />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                UX engineering / product strategy / full-stack build
+              </p>
+              <h3>FootLakay</h3>
+              <p>
+                A live World Cup prediction and fan platform for the Haitian
+                diaspora, built around matchday habit, community, language
+                parity, and trust.
+              </p>
+              <a class="text-link" href="case-studies/footlakay.html"
+                >Read case study -></a
+              >
+              <a
+                class="text-link"
+                href="https://footlakay.com/"
+                target="_blank"
+                rel="noreferrer"
+                >View live product -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="product web"
+          >
+            <a class="project-image" href="case-studies/learnloop.html">
+              <img
+                src="assets/learnloop-live.png"
+                alt="LearnLoop admin dashboard live product preview"
+              />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                UX engineering / role architecture / LMS build
+              </p>
+              <h3>LearnLoop</h3>
+              <p>
+                A multi-role learning platform where students, teachers, admins,
+                and owners each get a tailored, permission-safe experience.
+              </p>
+              <a class="text-link" href="case-studies/learnloop.html"
+                >Read case study -></a
+              >
+              <a
+                class="text-link"
+                href="https://kreyol-learn-flow.lovable.app/auth/login"
+                target="_blank"
+                rel="noreferrer"
+                >View live product -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="product web"
+          >
+            <a class="project-image" href="case-studies/believerhub.html">
+              <img
+                src="assets/believerhub-live.png"
+                alt="BelieverHub live product home dashboard preview"
+              />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                Product strategy / UX systems / developer handoff
+              </p>
+              <h3>BelieverHub</h3>
+              <p>
+                A fellowship platform for the Haitian Christian diaspora,
+                centered on prayer accountability, small groups, and church-led
+                community density.
+              </p>
+              <a class="text-link" href="case-studies/believerhub.html"
+                >Read case study -></a
+              >
+              <a
+                class="text-link"
+                href="https://believerhub.lovable.app/auth"
+                target="_blank"
+                rel="noreferrer"
+                >View live product -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="product web"
+          >
+            <a class="project-image" href="case-studies/icom.html">
+              <img src="assets/icom.jpg" alt="ICOM case study preview" />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                User research / interaction design / UI design
+              </p>
+              <h3>ICOM</h3>
+              <p>
+                A government service-tracking web app for improving
+                communication, oversight, and accountability between a minister,
+                missions abroad, and the diaspora.
+              </p>
+              <a class="text-link" href="case-studies/icom.html"
+                >Read case study -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="product web"
+          >
+            <a class="project-image" href="case-studies/bloxide.html">
+              <img src="assets/bloxide.jpg" alt="BLOXIDE case study preview" />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                User research / interaction design / UI design
+              </p>
+              <h3>BLOXIDE</h3>
+              <p>
+                A UX/UI redesign for an embedded-systems software company,
+                focused on navigation clarity, stronger CTAs, readable
+                typography, and better forms.
+              </p>
+              <a class="text-link" href="case-studies/bloxide.html"
+                >Read case study -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="product mobile"
+          >
+            <a class="project-image" href="case-studies/trackom.html">
+              <img src="assets/trackom.jpg" alt="TRACKOM case study preview" />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                User research / interaction design / UI design
+              </p>
+              <h3>TRACKOM</h3>
+              <p>
+                A mobile app that lets diaspora users track government service
+                requests by receipt number with real-time updates and clearer
+                communication.
+              </p>
+              <a class="text-link" href="case-studies/trackom.html"
+                >Read case study -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="mobile product"
+          >
+            <a class="project-image" href="case-studies/mizikanou.html">
+              <img
+                src="assets/mizikanou.jpg"
+                alt="MIZIKANOU case study preview"
+              />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                User research / interaction design / UI design
+              </p>
+              <h3>MIZIKANOU</h3>
+              <p>
+                A dedicated Haitian music streaming app designed around curated
+                content, high-quality audio, cultural stories, trust, and
+                community engagement.
+              </p>
+              <a class="text-link" href="case-studies/mizikanou.html"
+                >Read case study -></a
+              >
+            </div>
+          </article>
+
+          <article
+            class="project-card reveal interactive-card"
+            data-category="web product"
+          >
+            <a class="project-image" href="case-studies/tribalscale.html">
+              <img
+                src="assets/tribalscale.jpg"
+                alt="TRIBALSCALE case study preview"
+              />
+            </a>
+            <div class="project-content">
+              <p class="project-type">
+                User research / interaction design / UI design
+              </p>
+              <h3>TRIBALSCALE</h3>
+              <p>
+                A website concept for Tribal|Design, an agency-within-an-agency
+                created to showcase design services and attract new clients.
+              </p>
+              <a class="text-link" href="case-studies/tribalscale.html"
+                >Read case study -></a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section hire" aria-label="What I bring">
+        <div class="section-heading">
+          <p class="section-kicker">What I bring</p>
+          <h2>
+            I move between user insight, interface systems, and front-end
+            execution.
+          </h2>
+          <p>
+            I design with the practical habits of someone who thinks about
+            states, edge cases, responsive behavior, accessibility, and how the
+            experience will be built.
+          </p>
+        </div>
+        <div class="hire-grid">
+          <article class="hire-card">
+            <span>01</span>
+            <h3>Research into product structure</h3>
+            <p>
+              I translate interviews, stakeholder goals, and user pain points
+              into flows, priorities, and decisions the product can act on.
+            </p>
+          </article>
+          <article class="hire-card">
+            <span>02</span>
+            <h3>Interfaces with rationale</h3>
+            <p>
+              I document wireframes, process artifacts, final screens, and
+              outcomes so the reasoning behind the UI is visible.
+            </p>
+          </article>
+          <article class="hire-card">
+            <span>03</span>
+            <h3>Front-end fluency</h3>
+            <p>
+              I think through interaction states, responsive layouts,
+              accessibility, CSS structure, JavaScript behavior, and handoff
+              constraints.
+            </p>
+          </article>
+          <article class="hire-card">
+            <span>04</span>
+            <h3>Flexible build range</h3>
+            <p>
+              I can contribute across Figma, HTML, CSS, JavaScript, React,
+              WordPress, Shopify, and design system execution.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section toolbox" id="toolbox">
+        <div class="section-heading">
+          <p class="section-kicker">Toolbox</p>
+          <h2>Tools and systems I use to design, build, and iterate.</h2>
+          <p>
+            Grouped by how I use them: product design, front-end implementation,
+            CMS work, AI-assisted workflows, and UX engineering practices.
+          </p>
+        </div>
+        <div class="toolbox-grid" aria-label="Skills and tools">
+          <article class="toolbox-card">
+            <h3>Design & prototyping</h3>
+            <div class="skills-grid">
+              <span>Figma</span>
+              <span>Adobe XD</span>
+              <span>Photoshop</span>
+              <span>Illustrator</span>
+              <span>Sketch</span>
+              <span>Balsamiq</span>
+            </div>
+          </article>
+          <article class="toolbox-card">
+            <h3>Front-end</h3>
+            <div class="skills-grid">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Tailwind</span>
+              <span>Bootstrap</span>
+            </div>
+          </article>
+          <article class="toolbox-card">
+            <h3>CMS & commerce</h3>
+            <div class="skills-grid">
+              <span>WordPress</span>
+              <span>Shopify</span>
+              <span>WooCommerce</span>
+              <span>Responsive themes</span>
+            </div>
+          </article>
+          <article class="toolbox-card">
+            <h3>AI & agentic workflows</h3>
+            <div class="skills-grid">
+              <span>AI-assisted design</span>
+              <span>Agentic AI</span>
+              <span>Prompt systems</span>
+              <span>Lovable</span>
+              <span>AI prototyping</span>
+            </div>
+          </article>
+          <article class="toolbox-card wide">
+            <h3>UX engineering</h3>
+            <div class="skills-grid">
+              <span>Design systems</span>
+              <span>Responsive UI</span>
+              <span>Accessibility</span>
+              <span>i18n</span>
+              <span>Interaction states</span>
+              <span>Developer handoff</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section developer-layer"
+        aria-label="Developer background"
+      >
+        <div>
+          <p class="section-kicker">Design + code</p>
+          <h2>
+            My web development background helps me design interfaces with real
+            implementation logic.
+          </h2>
+        </div>
+        <div class="dev-panel" data-code-panel>
+          <div class="dev-panel-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <pre><code>const portfolioStrength = [
+  "UX research",
+  "Interaction systems",
+  "Responsive UI",
+  "Front-end logic"
+];</code></pre>
+          <p>
+            I think about component states, responsive behavior, accessibility,
+            handoff, and build constraints while designing the interface.
+          </p>
+        </div>
+      </section>
+
+      <section class="section process" id="process">
+        <div class="section-heading">
+          <p class="section-kicker">How I work</p>
+          <h2>
+            A product workflow that keeps strategy, UX, and execution aligned.
+          </h2>
+        </div>
+        <div class="process-grid">
+          <article>
+            <span>01</span>
+            <h3>Understand</h3>
+            <p>
+              Clarify the audience, business goal, user need, technical
+              constraints, and success criteria before designing screens.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Structure</h3>
+            <p>
+              Map flows, content priority, interaction patterns, and edge cases
+              so the experience has a strong foundation.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Design</h3>
+            <p>
+              Create UI systems with consistent components, accessible patterns,
+              and clear state behavior.
+            </p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Build</h3>
+            <p>
+              Translate design into responsive front-end experiences with care
+              for performance, behavior, and detail.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>
+            Available for product teams, UX engineering work, and thoughtful web
+            builds.
+          </h2>
+          <p>
+            For product design, UX engineering, WordPress, Shopify, or front-end
+            collaboration, book a time or connect through LinkedIn and Behance.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a
+            class="button primary"
+            href="https://calendly.com/espedroneptune/30min"
+            target="_blank"
+            rel="noreferrer"
+            >Schedule a call</a
+          >
+          <a
+            class="button secondary"
+            href="https://www.linkedin.com/in/espedro-neptune/"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            class="button secondary"
+            href="https://www.behance.net/EspedroNeptune"
+            target="_blank"
+            rel="noreferrer"
+            >Behance</a
+          >
+          <a
+            class="button secondary"
+            href="assets/ESPEDRONEPTUNE_Resume.docx"
+            target="_blank"
+            rel="noreferrer"
+            >View resume</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Espedro Neptune</span>
+      <span>UX Engineer</span>
+    </footer>
+
+    <script src="script.js?v=20260709"></script>
+  </body>
+</html>

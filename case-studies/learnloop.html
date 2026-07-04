@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><script>(function(){try{var s=localStorage.getItem("theme");var t=s||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LearnLoop Case Study | Espedro Neptune</title>
+    <meta name="description" content="LearnLoop UX engineering and product design case study by Espedro Neptune.">
+    <link rel="stylesheet" href="../styles.css?v=20260709">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="brand" href="../index.html#top" aria-label="Espedro Neptune home"><span class="brand-mark">EN</span><span>Espedro Neptune</span></a>
+      <nav class="nav" aria-label="Primary navigation"><a href="../index.html#work">Work</a><a href="../index.html#toolbox">Toolbox</a><a href="../index.html#process">Process</a><a href="../index.html#contact">Contact</a></nav>
+      <div class="header-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1.8" x2="12" y2="4.4"/><line x1="12" y1="19.6" x2="12" y2="22.2"/><line x1="4.4" y1="4.4" x2="6.2" y2="6.2"/><line x1="17.8" y1="17.8" x2="19.6" y2="19.6"/><line x1="1.8" y1="12" x2="4.4" y2="12"/><line x1="19.6" y1="12" x2="22.2" y2="12"/><line x1="4.4" y1="19.6" x2="6.2" y2="17.8"/><line x1="17.8" y1="6.2" x2="19.6" y2="4.4"/></g></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.4 14.7A8.6 8.6 0 0 1 9.3 3.6a.75.75 0 0 0-.9-1 10.1 10.1 0 1 0 12.9 12.9.75.75 0 0 0-1-.9Z"/></svg></button><a class="header-cta" href="../assets/ESPEDRONEPTUNE_Resume.docx" target="_blank" rel="noreferrer">Resume</a></div>
+    </header>
+    <main id="main" class="case-main">
+      <section class="case-hero">
+        <div>
+          <p class="eyebrow">Case study</p>
+          <h1>LearnLoop</h1>
+          <p class="case-summary">A custom multi-role learning platform for French- and English-speaking diaspora learners, designed so students, teachers, admins, and owners each get the right dashboard, permissions, and workflow.</p>
+          <div class="hero-actions"><a class="button primary" href="https://kreyol-learn-flow.lovable.app/auth/login" target="_blank" rel="noreferrer">Open live product</a><a class="button secondary" href="../index.html#work">Back to work</a></div>
+        </div>
+        <dl class="case-meta">
+          <div><dt>Role</dt><dd>UX Engineer / Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Role architecture, IA, UI system, implementation</dd></div>
+          <div><dt>Stack</dt><dd>React, Tailwind CSS, Supabase, RLS, Edge Functions, Stripe</dd></div>
+          <div><dt>Status</dt><dd>Pre-launch product</dd></div>
+        </dl>
+      </section>
+      <section class="case-snapshot" aria-label="Case study snapshot">
+        <div class="snapshot-grid">
+          <article class="snapshot-card"><span>Problem</span><strong>One LMS, four different jobs</strong><p>The platform needed to serve students, teachers, admins, and owners without cluttering anyone with tools they should not see.</p></article>
+          <article class="snapshot-card"><span>My role</span><strong>Systems UX and full-stack build</strong><p>I designed the role model, learning spine, dashboards, permission rules, and bilingual product interface.</p></article>
+          <article class="snapshot-card"><span>Key decision</span><strong>Permissions are UX</strong><p>RLS and a dedicated role table make access control part of the product design, not a layer hidden after the UI.</p></article>
+          <article class="snapshot-card"><span>Outcome</span><strong>Four secure experiences</strong><p>The product delivers tailored flows for learning, authoring, administration, and ownership from one codebase.</p></article>
+        </div>
+      </section>
+      <figure class="case-cover"><img src="../assets/learnloop-live.png" alt="LearnLoop admin dashboard live product screenshot"><figcaption>Live LearnLoop admin dashboard showing role-based navigation, language controls, platform metrics, course completion reporting, and certificate activity.</figcaption></figure>
+      <section class="case-section"><h2>My contribution</h2><ul class="contribution-list"><li>Mapped the four-role architecture and defined how each user should enter, navigate, and act inside the same platform.</li><li>Designed the course, lesson, quiz, progress, and certificate spine so learning stays consistent across roles.</li><li>Built the app in phases with Supabase Row-Level Security, server-side secrets, Stripe integration, and French-default bilingual UI.</li></ul></section>
+      <section class="case-section"><h2>Challenge</h2><div><p>The client needed a real learning platform, not just a course list. Off-the-shelf LMS tools were expensive to bend toward a bilingual diaspora audience and did not provide the control needed for four distinct role experiences.</p><p>The design question became: how can one platform feel purpose-built for student, teacher, admin, and owner while keeping each role's tools and data strictly separated?</p></div></section>
+      <section class="case-section"><h2>Build vs buy</h2><div class="insight-grid"><article class="insight-card"><strong>Language ownership</strong><p>Mainstream LMS plugins treat French as an add-on. This audience needed French as the default product language with English at parity.</p></article><article class="insight-card"><strong>Role separation</strong><p>Four role experiences with strict boundaries are where generic plugins become awkward, expensive, and harder to reason about.</p></article><article class="insight-card"><strong>Experience ceiling</strong><p>A custom React and Tailwind build gave me control over dashboards, learning flows, permissions, and visual consistency.</p></article></div></section>
+      <section class="case-section"><h2>Success signals</h2><div><p>The product was evaluated around whether each role could complete its core job without seeing unrelated tools or unsafe data.</p><ul class="impact-list"><li><strong>Clarity per role:</strong> each user lands on a dashboard built around their job.</li><li><strong>Effortless learning:</strong> students can enroll, resume lessons, take quizzes, and track progress without navigation ambiguity.</li><li><strong>Confident authoring:</strong> teachers can build courses, lessons, and quizzes without touching platform-wide controls.</li><li><strong>Trust and safety:</strong> grades, payments, and personal data are protected at the database level.</li></ul></div></section>
+      <section class="case-section"><h2>Information architecture</h2><div class="insight-grid"><article class="insight-card"><strong>Student</strong><p>Learn and finish through a focused course player, lesson quizzes, visible progress, and verifiable certificates.</p></article><article class="insight-card"><strong>Teacher</strong><p>Create and teach through a scoped authoring studio for courses, lessons, quizzes, and their own students.</p></article><article class="insight-card"><strong>Admin / Owner</strong><p>Manage content, users, payments, roles, platform settings, audit logs, backups, and security with tiered privileges.</p></article></div></section>
+      <section class="case-section"><h2>Learning spine</h2><div class="insight-grid"><article class="insight-card"><strong>Course</strong><p>The top-level unit a student enrolls in, with support for free or paid access.</p></article><article class="insight-card"><strong>Lesson and quiz</strong><p>Lessons contain video, text, or files. Lesson-level quizzes create a clear checkpoint before progress continues.</p></article><article class="insight-card"><strong>Progress and certificate</strong><p>Students explicitly mark progress, complete required checks, and receive a verifiable certificate at the end.</p></article></div></section>
+      <section class="case-section"><h2>Engineering decisions</h2><ul><li>Stored roles in a dedicated user_roles table instead of profile data to keep permissions auditable and resilient.</li><li>Used a security-definer function to avoid recursive RLS rules and create one source of truth for access control.</li><li>Kept Stripe and integration secrets server-side in Edge Functions, never in the browser.</li><li>Designed 2FA enforcement for admin and super-admin roles where the risk is highest.</li></ul></section>
+      <section class="case-section"><h2>Process rigor</h2><div><p>A multi-role LMS is too large to build safely in one pass. I sequenced the work so each layer could be tested before adding the next.</p><ul><li><strong>Phase 0:</strong> auth, role hierarchy, database schema, RLS, and language switcher.</li><li><strong>Phase 1:</strong> shared course data model.</li><li><strong>Phase 2:</strong> student experience: enroll, learn, quiz, certificate.</li><li><strong>Phase 3:</strong> teacher authoring studio.</li><li><strong>Phase 4-5:</strong> admin and super-admin control surfaces, payments, audit logs, and security.</li></ul></div></section>
+      <section class="case-section"><h2>Issues resolved</h2><div class="insight-grid"><article class="insight-card"><strong>Empty catalog</strong><p>A missing database privilege created a silent catalog issue. Resolving it reinforced the need to test data visibility by role.</p></article><article class="insight-card"><strong>Quiz completion</strong><p>Quiz logic initially allowed course completion without a passing score. I tightened the progression rule around learning integrity.</p></article><article class="insight-card"><strong>Media behavior</strong><p>Videos rendered as bare links before being corrected into embedded lesson content, making the course player feel native.</p></article></div></section>
+      <section class="case-section"><h2>Selected product direction</h2><figure class="final-screen"><img src="../assets/learnloop-live.png" alt="LearnLoop live admin dashboard interface"><figcaption>Live product interface showing the admin control surface: LMS navigation, reporting cards, charting, language selection, and permission-aware account controls.</figcaption></figure></section>
+      <section class="case-section"><h2>Outcome</h2><div><p>LearnLoop is feature-complete and pre-launch, with payments and 2FA re-enforcement as final steps before release.</p><ul class="impact-list"><li>Designed and built a complete four-role LMS from research through implementation.</li><li>Delivered role-tailored dashboards with strict data separation from one codebase.</li><li>Created a French-default bilingual interface with full English parity and resilient component layouts.</li></ul></div></section>
+      <nav class="case-nav" aria-label="Case study navigation"><a class="button secondary" href="footlakay.html">Previous: FootLakay</a><a class="button primary" href="believerhub.html">Next: BelieverHub</a></nav>
+    </main>
+    <footer class="site-footer"><span>Espedro Neptune</span><span>UX Engineer + Product Designer</span></footer>
+    <script src="../script.js?v=20260709"></script>
+  </body>
+</html>
