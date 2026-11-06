@@ -91,6 +91,5 @@ Update this file at the end of every work session: what changed, verification re
 - [ ] Confirm the "Open to full-time and remote roles" wording in the hero.
 - [ ] After deploy: Google Rich Results Test + validator.schema.org, LinkedIn Post Inspector (OG preview), submit `sitemap.xml` in Search Console.
 - [ ] Optional: WebP/AVIF images (needs `cwebp` or a build plugin), `srcset` for mobile (Lighthouse estimates ~300 KB savings on Home).
-- [x] Git initialized on 2026-11-06 and connected to https://github.com/Espedro/My_Portfolio (history kept from the old static site on `master`). React version is on branch `react-redesign`, PR #1: https://github.com/Espedro/My_Portfolio/pull/1 (not merged yet).
-- [ ] Merge PR #1 when the owner approves.
+- [x] Git initialized on 2026-11-06 and connected to https://github.com/Espedro/My_Portfolio (history kept from the old static site on `master`). PR #1 (https://github.com/Espedro/My_Portfolio/pull/1) merged into `master` on 2026-11-06: the React version is now the main code.
 - [ ] Deploy: espedroneptune.com is a static upload on LiteSpeed hosting (likely Hostinger), not connected to GitHub. Publish by running `npm run build` and uploading `dist/` to the site root.
