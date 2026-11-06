@@ -16,7 +16,7 @@ npm run build
 npm run preview
 ```
 
-Deploy `dist/` to a static host at https://espedroneptune.com (set in `SITE_URL`, `index.html`, `sitemap.xml`, `robots.txt`). The build generates entry HTML files for every `/case-studies/*.html` path, plus redirect pages for retired case studies, so direct links and refreshes work even without SPA rewrites. React Router handles navigation inside the app.
+Deploy the **contents** of `dist/` (not the project, not a `dist` folder) to a static host at https://espedroneptune.com (set in `SITE_URL`, `index.html`, `sitemap.xml`, `robots.txt`). The build generates entry HTML files for every `/case-studies/*.html` path, plus redirect pages for retired case studies, so direct links and refreshes work even without SPA rewrites. React Router handles navigation inside the app.
 
 ## Editing
 

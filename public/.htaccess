@@ -1,0 +1,33 @@
+# Apache / LiteSpeed config for the built portfolio (copied into dist/ by Vite).
+# Upload the CONTENTS of dist/ to public_html — never the source project.
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Real files and folders are served as-is.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Missing static files (assets, images, scripts) stay a real 404.
+  RewriteCond %{REQUEST_URI} \.(js|css|map|png|jpe?g|gif|svg|webp|ico|pdf|docx|txt|xml|json|woff2?)$ [NC]
+  RewriteRule ^ - [L,R=404]
+
+  # Any other unknown path goes to the React app, which shows its own 404 page.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Hashed build files never change: cache them for a year.
+  <FilesMatch "^index-[A-Za-z0-9_-]+\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # HTML must always be fresh so new deploys show up right away.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
