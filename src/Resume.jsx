@@ -6,7 +6,7 @@ import { profile } from "./pages.js";
 // Deliberate differences from the PDF: location is "USA, FL", no phone number, GitHub added.
 const resume = {
   title: "AI Engineer · UX Engineer · Product Designer",
-  summary: "Product designer and UX engineer with 10+ years shipping web products, now moving into AI engineering. Builds LLM-powered tools end to end: knowledge-grounded assistants, a self-hosted agent connected to Gmail, Calendar and Docs through MCP with human confirmation before every write, and four-language platforms (Haitian Creole, French, English, Spanish). In the AI Engineering program at 4Geeks Academy.",
+  summary: "Product Designer and UX Engineer with a strong background in building and shipping digital products, now expanding into AI engineering. Develops LLM-powered solutions end to end, including knowledge-grounded assistants, a self-hosted AI agent integrated with Gmail, Calendar, and Docs through MCP with human approval for write actions, and multilingual platforms supporting Haitian Creole, French, and English. Currently pursuing AI Engineering training at 4Geeks Academy.",
   skills: [
     ["AI & LLM", "Claude & OpenAI APIs, prompt and system design, tool calling, MCP integrations, LiteLLM, OpenRouter, self-hosted agents (OpenClaw), knowledge-grounded assistants, conversational UX"],
     ["AI · in training", "Python, RAG, vector databases, FastAPI, multi-agent workflows, guardrails, n8n, WebSockets, Docker, testing, LLM app security (OWASP)"],

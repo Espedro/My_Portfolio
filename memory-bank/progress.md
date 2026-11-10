@@ -92,7 +92,7 @@ Update this file at the end of every work session: what changed, verification re
 - Content is copied from `ESPEDRONEPTUNE_Resume.docx` word for word, with 3 deliberate differences: location is "USA, FL" (not Orlando), a GitHub link is added, and LinkedIn uses the site URL. The phone number is **not** shown on the web page (it is still in the PDF).
 - Kept in `src/Resume.jsx` (outside `src/pages/`) so the Vite plugin doesn't copy it as a case study. On the live host, /resume works through the `.htaccess` fallback to index.html.
 - Lighthouse mobile /resume: 99 / 100 / 100 / 100.
-- [x] 2026-11-09: owner sent the **new resume** (title "AI Engineer · UX Engineer · Product Designer", Dessalines self-hosted agent, 4Geeks AI Engineering, skills table, 5 jobs since 2012). Replaced `public/assets/Espedro-Neptune-Resume.pdf` with it and rewrote `src/Resume.jsx` to match it word for word. On the web page: "USA, FL", no phone, GitHub added. The case-study names link to their pages.
+- [x] 2026-11-09: owner sent the **new resume** (Summary revised again the same night: "strong background", 3 languages; replaced the PDF and the Resume.jsx summary) (title "AI Engineer · UX Engineer · Product Designer", Dessalines self-hosted agent, 4Geeks AI Engineering, skills table, 5 jobs since 2012). Replaced `public/assets/Espedro-Neptune-Resume.pdf` with it and rewrote `src/Resume.jsx` to match it word for word. On the web page: "USA, FL", no phone, GitHub added. The case-study names link to their pages.
 - When the resume changes again: replace the PDF **and** update the `resume` object in `src/Resume.jsx`.
 - [ ] The new resume gives facts that differ from the site; the owner should decide:
   - **Title:** the resume says "AI Engineer"; the site says "AI Product Builder".
