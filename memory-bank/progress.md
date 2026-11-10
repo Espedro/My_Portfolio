@@ -79,6 +79,13 @@ Update this file at the end of every work session: what changed, verification re
 - New order: AI BOS CRM → Kominote Konbit → VotPam → Agrodoc → BelieverHub → FootLakay → Maket Lakay → Media Innovation.
 - Lighthouse mobile: Home 93 · Kominote Konbit 93 · VotPam 97 · Agrodoc 97 (Accessibility/Best Practices/SEO 100; one Home a11y run showed 96, two reruns 100).
 
+### 2026-11-09 — Hero copy, sticky header, Work layout
+- [x] Hero lede replaced with the owner's sentence: "I bridge human-centered design and engineering to create intuitive, scalable digital products, leveraging AI to enhance both user experiences and the way they're built."
+- [x] Header is sticky (`.topbar`: sticky, solid `--bg`, z-index 50). `scroll-padding-top` is 96px on desktop and 120px on mobile (2-row header), so anchor links don't land under it.
+- [x] Work section: feedback said 8 identical big rows weren't engaging. The owner chose **3 featured + grid**. The first 3 case studies (AI BOS CRM, Kominote Konbit, VotPam) stay big rows, with the 2nd row flipped on desktop. The other 5 sit in a 2-column "More work" grid (1 column at ≤760px) of compact cards with a one-line `short` summary (in the `cards` map in Home.jsx). The whole card is clickable (stretched link), and the Live link is separate. Featured vs grid follows the order of `caseStudies` in pages.js. Desktop page height went from about 11,000px to 8,243px.
+- Note: Home.jsx must read `caseStudies` **inside** the component, because pages.js imports Home (a circular import). At module level it throws "Cannot access before initialization" and the page is blank.
+- Lighthouse mobile, Home: Performance 90–92, Accessibility 100, Best Practices 100, SEO 100, CLS 0.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).

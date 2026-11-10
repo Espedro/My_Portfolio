@@ -51,7 +51,7 @@
 }
 
 html {
-  scroll-padding-top: 1.5rem;
+  scroll-padding-top: 96px; /* clears the sticky header */
 }
 
 body {
@@ -101,6 +101,10 @@ a:hover {
 
 /* ---------- Header ---------- */
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
   border-bottom: 1px solid var(--rule);
 }
 
@@ -497,9 +501,118 @@ a:hover {
   transform: scale(1.02);
 }
 
+@media (min-width: 761px) {
+  .work-item--flip { flex-direction: row-reverse; }
+}
+
+/* More work: compact 2-column grid */
+.more-work {
+  border-top: 1px solid var(--ink);
+  padding-top: 32px;
+}
+
+.home-h3 {
+  margin: 0 0 32px;
+  font-size: 28px;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+}
+
+.work-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px 40px;
+}
+
+.work-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.work-card-shot {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ph);
+  border: 1px solid var(--rule);
+  margin-bottom: 8px;
+}
+
+.work-card-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 400ms ease;
+}
+
+.work-card:hover .work-card-shot img {
+  transform: scale(1.02);
+}
+
+.work-card-name {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.work-card-link {
+  text-decoration: none;
+}
+
+/* Stretched link: the whole card opens the case study. */
+.work-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.work-card:hover .work-card-link,
+.work-card:hover .work-card-cta {
+  color: var(--accent);
+}
+
+.work-card-summary {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.work-card-links {
+  margin: 4px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  font-size: 15px;
+}
+
+.work-card-cta {
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.work-card-links .work-live {
+  position: relative;
+  z-index: 1;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+@media (max-width: 760px) {
+  .work-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .work-shot img { transition: none; }
-  .work-shot:hover img { transform: none; }
+  .work-shot img,
+  .work-card-shot img { transition: none; }
+  .work-shot:hover img,
+  .work-card:hover .work-card-shot img { transform: none; }
 }
 
 /* ---------- About band ---------- */
@@ -774,6 +887,7 @@ a:hover {
   .theme-btn { order: 1; }
   .topnav { order: 2; width: 100%; gap: 0 18px; font-size: 15px; }
   .topnav a { padding: 10px 0; }
+  html { scroll-padding-top: 120px; }
 
   .home-hero { padding-top: 64px; padding-bottom: 56px; }
   .home-glance { padding-bottom: 80px; }

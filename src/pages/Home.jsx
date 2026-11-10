@@ -18,25 +18,30 @@ const cards = {
     summary: "A non-partisan civic information and opinion-poll platform for Haiti's 2027 elections: 4,037 candidates, sourced civic documents, and polls designed so nobody mistakes them for a vote.",
   },
   agrodoc: {
+    short: "Offline-first clinic records for Haiti, encrypted on every device and synced when the network returns.",
     discipline: "Health tech · Offline-first PWA · UX engineering",
     summary: "A clinic medical record for Haiti that keeps working without internet, syncs when the network returns, encrypts data on every device and follows the patient from triage to prescription.",
   },
   believerhub: {
+    short: "A fellowship PWA with a design system and an AI Bible assistant that cites its sources.",
     discipline: "0-to-1 strategy · Design system · AI guardrails",
     summary: "A live fellowship PWA built around prayer accountability and small groups, with design tokens, EN/FR structure and an AI Bible assistant that cites verses and defers to pastors.",
     alt: "BelieverHub landing page at believerhub.org",
   },
   footlakay: {
+    short: "A World Cup fan platform for the Haitian diaspora, in four languages.",
     discipline: "UX engineering · Localization · Full-stack build",
     summary: "A World Cup prediction and fan platform for the Haitian diaspora, with full parity across four languages, automated grading and API keys kept server-side.",
     alt: "FootLakay homepage with World Cup 2026 hero, language selector and countdown",
   },
   "maket-lakay": {
+    short: "A multi-vendor marketplace linking Haitian businesses, local shoppers and the diaspora.",
     discipline: "Marketplace UX · Trust design · Front-end build",
     summary: "A multi-vendor marketplace connecting Haitian businesses, local shoppers and the diaspora through verified vendors and diaspora care packages.",
     alt: "Maket Lakay marketplace homepage with category browsing and trending picks",
   },
   "media-innovation": {
+    short: "A five-page React site and brand system for a creative-technology agency.",
     discipline: "Brand system · UX/UI design · React SPA",
     summary: "A five-page React site for a creative-technology agency, turning six services and an AI offering into one clear story, with a blog that updates itself.",
     alt: "Media Innovation agency homepage hero",
@@ -87,6 +92,9 @@ const process = [
 ];
 
 export default function Home() {
+  // Read inside the component: pages.js imports this file, so caseStudies isn't ready at module load.
+  const featured = caseStudies.slice(0, 3);
+  const more = caseStudies.slice(3);
   return (<main id="main" className="home">
 
 <section className="home-hero wrap" id="top" aria-labelledby="hero-title">
@@ -98,7 +106,7 @@ export default function Home() {
 <span className="roles-static" aria-hidden="true">UX Engineer · Product Designer · AI Product Builder</span>
 </p>
 <div className="home-intro">
-<p className="home-lede">Every project starts with people: who they are, what they need to get done, and where they get stuck today. I turn that understanding into flows, interfaces and shipped React code, using AI both inside the products I make and in the way I make them.</p>
+<p className="home-lede">I bridge human-centered design and engineering to create intuitive, scalable digital products, leveraging AI to enhance both user experiences and the way they're built.</p>
 <div className="home-actions">
 <Link className="btn-ink" to="/#work">See the work</Link>
 <a className="strong-link" href={profile.calendly} target="_blank" rel="noreferrer">Book a 30-minute call</a>
@@ -120,9 +128,9 @@ export default function Home() {
 <h2 id="work-title" className="home-h2">Selected work</h2>
 <p>Each case study walks from the user problem to the structure, the interface decisions and the code, so the reasoning behind every screen is on the page.</p>
 </div>
-{caseStudies.map((study, index) => {
+{featured.map((study, index) => {
   const card = cards[study.slug];
-  return <article className="work-item" key={study.slug}>
+  return <article className={index % 2 === 1 ? "work-item work-item--flip" : "work-item"} key={study.slug}>
 <div className="work-copy">
 <p className="work-discipline">{card.discipline}</p>
 <h3 className="work-name">{study.name}</h3>
@@ -137,6 +145,23 @@ export default function Home() {
 </Link>
 </article>;
 })}
+<div className="more-work">
+<h3 className="home-h3">More work</h3>
+<ul className="work-grid">
+{more.map(study => {
+  const card = cards[study.slug];
+  return <li key={study.slug}>
+<article className="work-card">
+<div className="work-card-shot"><Img src={study.image} alt="" /></div>
+<p className="work-discipline">{card.discipline}</p>
+<h4 className="work-card-name"><Link className="work-card-link" to={study.path}>{study.name}<span className="sr-only">: read the case study</span></Link></h4>
+<p className="work-card-summary">{card.short}</p>
+<p className="work-card-links"><span aria-hidden="true" className="work-card-cta">Case study →</span><a className="work-live" href={study.liveUrl} target="_blank" rel="noreferrer">Live ↗<span className="sr-only">: {study.name} (opens in a new tab)</span></a></p>
+</article>
+</li>;
+})}
+</ul>
+</div>
 </section>
 
 <section id="about" className="home-band" aria-labelledby="about-title">
