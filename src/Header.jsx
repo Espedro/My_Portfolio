@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BrandMark, ThemeToggle } from "./components.jsx";
 import { profile } from "./pages.js";
 
@@ -15,7 +15,7 @@ export default function Header() {
 <Link to="/#about">About</Link>
 <Link to="/#ai">AI</Link>
 <Link to="/#contact">Contact</Link>
-<a className="topnav-resume" href={profile.resume} target="_blank" rel="noreferrer">Résumé (PDF)</a>
+<NavLink className="topnav-resume" to={profile.resumePage}>Resume</NavLink>
 </nav>
 <ThemeToggle />
 </div>

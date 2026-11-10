@@ -13,7 +13,8 @@ export const profile = {
   behance: "https://www.behance.net/EspedroNeptune",
   github: "https://github.com/Espedro",
   email: "espedroneptune@gmail.com", // public on the resume
-  resume: "/assets/Espedro-Neptune-Resume.pdf",
+  resume: "/assets/Espedro-Neptune-Resume.pdf", // PDF download
+  resumePage: "/resume",                          // web version
 };
 
 // All pages are bundled eagerly: case studies are small data objects, and loading them
@@ -27,6 +28,7 @@ import MediaInnovation from "./pages/MediaInnovation.jsx";
 import KominoteKonbit from "./pages/KominoteKonbit.jsx";
 import Votpam from "./pages/Votpam.jsx";
 import Agrodoc from "./pages/Agrodoc.jsx";
+import Resume from "./Resume.jsx";
 
 // Order here drives the homepage list, the "Next case study" link, and sitemap.
 export const caseStudies = [
@@ -103,5 +105,12 @@ export const homePage = {
   Component: Home,
 };
 
-export const pages = [homePage, ...caseStudies];
+export const resumePage = {
+  path: "/resume",
+  title: "Resume | Espedro Neptune",
+  description: "Resume of Espedro Neptune, product designer and UX engineer: experience, selected products, core strengths and education. Read it online or download the PDF.",
+  Component: Resume,
+};
+
+export const pages = [homePage, ...caseStudies, resumePage];
 

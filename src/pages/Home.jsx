@@ -110,7 +110,7 @@ export default function Home() {
 <div className="home-actions">
 <Link className="btn-ink" to="/#work">See the work</Link>
 <a className="strong-link" href={profile.calendly} target="_blank" rel="noreferrer">Book a 30-minute call</a>
-<a className="strong-link" href={profile.resume} target="_blank" rel="noreferrer">Download résumé</a>
+<Link className="strong-link" to={profile.resumePage}>Read my resume</Link>
 </div>
 </div>
 </section>
@@ -226,7 +226,7 @@ export default function Home() {
 <li><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
 {profile.github && <li><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a></li>}
 <li><a href={profile.behance} target="_blank" rel="noreferrer">Behance</a></li>
-<li><a href={profile.resume} target="_blank" rel="noreferrer">Résumé (PDF)</a></li>
+<li><Link to={profile.resumePage}>Resume</Link></li>
 </ul>
 </div>
 </section>

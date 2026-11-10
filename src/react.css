@@ -177,6 +177,95 @@ a:hover {
   text-decoration: underline;
 }
 
+.topnav .topnav-resume.active {
+  color: var(--accent);
+}
+
+/* ---------- Resume page (Resume.jsx) ---------- */
+.resume-contact {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.resume-contact li {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.resume-contact a {
+  color: var(--ink);
+}
+
+.resume-actions {
+  margin-top: 24px;
+}
+
+.resume-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resume-tags li {
+  border: 1px solid var(--rule);
+  padding: 8px 14px;
+  font-size: 16px;
+}
+
+.resume-entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resume-entries li {
+  padding: 0 0 28px;
+  margin: 0 0 28px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.resume-entries li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.resume-entries h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+.resume-entries p {
+  margin: 0;
+}
+
+.resume-entries .resume-when {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.resume-more {
+  margin: 28px 0 0;
+  font-weight: 600;
+}
+
+@media print {
+  .topbar, .sitefoot, .skip-link, .resume-actions { display: none !important; }
+  .resume .cs-band-rule { break-inside: avoid; }
+}
+
 .theme-btn {
   width: 44px;
   height: 44px;

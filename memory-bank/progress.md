@@ -86,6 +86,14 @@ Update this file at the end of every work session: what changed, verification re
 - Note: Home.jsx must read `caseStudies` **inside** the component, because pages.js imports Home (a circular import). At module level it throws "Cannot access before initialization" and the page is blank.
 - Lighthouse mobile, Home: Performance 90–92, Accessibility 100, Best Practices 100, SEO 100, CLS 0.
 
+### 2026-11-09 — Resume page
+- [x] Visible text uses "Resume" (no accents): the nav, the hero link and the contact links.
+- [x] New web page **/resume** (`src/Resume.jsx`, `resumePage` in pages.js, added to the sitemap). It shows the résumé content (Summary, Core strengths, Experience, Selected products, Education) with a **Download PDF** button (`download` attribute). The nav "Resume" link, the hero "Read my resume" link and the contact "Resume" link all go to /resume instead of opening the PDF. The page has print styles (header, footer and buttons are hidden).
+- Content is copied from `ESPEDRONEPTUNE_Resume.docx` word for word, with 3 deliberate differences: location is "USA, FL" (not Orlando), a GitHub link is added, and LinkedIn uses the site URL. The phone number is **not** shown on the web page (it is still in the PDF).
+- Kept in `src/Resume.jsx` (outside `src/pages/`) so the Vite plugin doesn't copy it as a case study. On the live host, /resume works through the `.htaccess` fallback to index.html.
+- Lighthouse mobile /resume: 99 / 100 / 100 / 100.
+- [ ] When the owner updates the .docx: update the `resume` object in `src/Resume.jsx` **and** re-export `Espedro-Neptune-Resume.pdf`. The PDF still says Orlando.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
