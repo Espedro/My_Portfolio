@@ -108,7 +108,7 @@ export const homePage = {
 export const resumePage = {
   path: "/resume",
   title: "Resume | Espedro Neptune",
-  description: "Resume of Espedro Neptune, product designer and UX engineer: experience, selected products, core strengths and education. Read it online or download the PDF.",
+  description: "Resume of Espedro Neptune, AI engineer, UX engineer and product designer: AI and product work, skills, experience and education. Read it online or download the PDF.",
   Component: Resume,
 };
 

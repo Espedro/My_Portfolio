@@ -258,7 +258,60 @@ a:hover {
 
 .resume-more {
   margin: 28px 0 0;
+}
+
+.resume-more + .resume-more {
+  margin-top: 12px;
   font-weight: 600;
+}
+
+.resume-points {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.resume-points li + li {
+  margin-top: 6px;
+}
+
+.resume-entries .resume-points li {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.resume-entries .resume-points li + li {
+  margin-top: 6px;
+}
+
+.resume-skills {
+  margin: 0;
+}
+
+.resume-skills div {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 4px 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.resume-skills div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.resume-skills dt {
+  font-weight: 600;
+}
+
+.resume-skills dd {
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .resume-skills div { grid-template-columns: 1fr; }
 }
 
 @media print {

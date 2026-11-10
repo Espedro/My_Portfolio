@@ -1,39 +1,68 @@
 import { Link } from "react-router-dom";
 import { profile } from "./pages.js";
 
-// Web version of the resume. Content comes from public/assets/ESPEDRONEPTUNE_Resume.docx.
-// When the .docx changes, update this object and re-export the PDF (profile.resume).
+// Web version of the resume. Content comes from public/assets/Espedro-Neptune-Resume.pdf (2026-11-09 version).
+// When the resume changes, update this object AND replace the PDF.
+// Deliberate differences from the PDF: location is "USA, FL", no phone number, GitHub added.
 const resume = {
-  title: "Product Designer | UX Engineer",
-  summary: "Product Designer and UX Engineer with 10+ years of experience designing and shipping digital products across government, SaaS, education, media, and startup environments. Experienced leading products from discovery and UX research through wireframes, high-fidelity design, front-end development, and production deployment using Figma, React, Tailwind CSS, and Supabase.",
-  strengths: [
-    "End-to-End Product Design",
-    "UX Research & Testing",
-    "Design Systems",
-    "Accessibility (WCAG)",
-    "React · Tailwind · Supabase",
-    "Cross-functional Collaboration",
-    "AI-assisted Product Design",
-    "Front-End Development",
+  title: "AI Engineer · UX Engineer · Product Designer",
+  summary: "Product designer and UX engineer with 10+ years shipping web products, now moving into AI engineering. Builds LLM-powered tools end to end: knowledge-grounded assistants, a self-hosted agent connected to Gmail, Calendar and Docs through MCP with human confirmation before every write, and four-language platforms (Haitian Creole, French, English, Spanish). In the AI Engineering program at 4Geeks Academy.",
+  skills: [
+    ["AI & LLM", "Claude & OpenAI APIs, prompt and system design, tool calling, MCP integrations, LiteLLM, OpenRouter, self-hosted agents (OpenClaw), knowledge-grounded assistants, conversational UX"],
+    ["AI · in training", "Python, RAG, vector databases, FastAPI, multi-agent workflows, guardrails, n8n, WebSockets, Docker, testing, LLM app security (OWASP)"],
+    ["Engineering", "JavaScript, React, Node.js, Express, Vite, Tailwind CSS, Supabase (PostgreSQL, Auth, RLS, Edge Functions, pg_cron), REST APIs, Stripe, WordPress, Linux VPS / SSH"],
+    ["Product & UX", "User research, usability testing, information architecture, prototyping, design systems & tokens, WCAG accessibility, multilingual UX, Figma, Adobe CC"],
   ],
-  products: [
-    { name: "FootLakay", link: "/case-studies/footlakay.html", text: "Designed and launched a multilingual FIFA World Cup prediction platform with live data, community features, and automated scoring." },
-    { name: "BelieverHub", link: "/case-studies/believerhub.html", text: "Designed a faith-based community platform from research through production." },
-    { name: "Learning Management System", text: "Built a bilingual LMS with Stripe payments, role-based access, quizzes, and certificates." },
-    { name: "ICOM Government Platform", text: "Designed a government service platform focused on transparency, citizen services, and diaspora engagement." },
+  work: [
+    {
+      name: "Dessalines", kind: "Self-hosted AI agent", stack: "OpenClaw · LiteLLM · MCP · Telegram",
+      points: [
+        "Deployed a personal AI agent on a Linux VPS, connected through MCP to Gmail, Google Calendar and Docs, and reachable from Telegram.",
+        "Designed human-in-the-loop guardrails: the agent asks for confirmation before any write action.",
+      ],
+    },
+    {
+      name: "Kominote Konbit", slug: "kominote-konbit", kind: "Community platform with AI assistant", stack: "React · Supabase · Lovable",
+      points: ["Built “Konbitèz Odette,” an AI assistant grounded in the Konbit reference guide as its private knowledge base, plus guided onboarding, on the BelieverHub architecture."],
+    },
+    {
+      name: "FootLakay", slug: "footlakay", kind: "World Cup 2026 prediction platform", stack: "React · Tailwind · Supabase · API-Sports",
+      points: ["Shipped a four-language platform with live fixtures, automated scoring (Edge Functions, pg_cron), a social Fan Zone, sponsor management and an AI chatbot persona."],
+    },
+    {
+      name: "VotPam", slug: "votpam", kind: "Civic information & opinion polls", stack: "Figma design system · Web app",
+      points: ["Designed candidate profiles, a news feed and poll results on a dedicated design system built for the platform."],
+    },
+    {
+      name: "BelieverHub", slug: "believerhub", kind: "Faith-based community platform", stack: "User research → Production",
+      points: ["Took the product from user research to production; its architecture became the foundation for Kominote Konbit."],
+    },
+  ],
+  alsoShipped: [
+    { name: "AI BOS CRM", slug: "ai-bos-crm" },
+    { name: "Agrodoc", slug: "agrodoc" },
+    { name: "Maket Lakay", slug: "maket-lakay" },
   ],
   experience: [
-    { role: "UX/UI Designer", org: "TransPerfect", where: "Remote", when: "2025–Present", text: "Deliver UX research, wireframes, prototypes, and high-fidelity interfaces for international clients while collaborating with cross-functional teams." },
-    { role: "UX/UI Engineer", org: "Bloxide", when: "2024–2025", text: "Designed and developed responsive React interfaces, implemented design systems, and improved consistency across products." },
-    { role: "UX/UI Designer", org: "CoinKids", when: "2023–2024", text: "Led user research, personas, wireframes, and accessibility improvements to enhance retention and usability." },
+    { role: "UX/UI Designer", org: "TransPerfect", when: "Remote · Mar 2025 – Present", points: ["Deliver user research, wireframes, prototypes and visual design for international clients across industries, aligned to client goals and timelines."] },
+    { role: "UX/UI Engineer", org: "Bloxide", when: "Oct 2024 – Mar 2025", points: ["Designed in Figma and built responsive React interfaces; implemented a design system that kept UI and behavior consistent across devices."] },
+    { role: "UX/UI Designer", org: "CoinKids", when: "Apr 2023 – Apr 2024", points: ["Increased user retention by finding pain points through research and personas and iterating on direct feedback; applied accessibility best practices for a broader audience."] },
+    { role: "UX/UI Designer", org: "Freelance", when: "Aug 2021 – Nov 2022", points: [
+      "Raised overall user satisfaction 15% through interactive prototypes and UI refinement across multiple client projects.",
+      "Introduced Figma libraries and design tokens that streamlined workflows with cross-functional teams.",
+    ] },
+    { role: "Senior Graphic & Web Designer", org: "Media Innovation", when: "Mar 2012 – Mar 2021", points: ["Designed and maintained client WordPress sites from wireframe to launch, and built brand identities with marketing teams over nine years."] },
   ],
   education: [
-    "UX/UI Design — Ironhack",
-    "Web Development — Ironhack",
-    "Artificial Intelligence Certification — BrainStation",
-    "Electronic Design — Centre de Formation Professionnelle d'Haïti",
+    ["AI Engineering", "4Geeks Academy (in progress)"],
+    ["Artificial Intelligence Certification", "BrainStation"],
+    ["UX/UI Design · Web Development", "Ironhack"],
+    ["Electronic Design", "CFP d'Haïti"],
   ],
+  languages: "English, French, Haitian Creole",
 };
+
+const caseLink = slug => `/case-studies/${slug}.html`;
 
 function Section({ id, title, children }) {
   return <section className="cs-band-rule" aria-labelledby={id}>
@@ -42,6 +71,10 @@ function Section({ id, title, children }) {
       <div className="cs-split-main">{children}</div>
     </div>
   </section>;
+}
+
+function Points({ items }) {
+  return <ul className="resume-points">{items.map(text => <li key={text}>{text}</li>)}</ul>;
 }
 
 export default function Resume() {
@@ -66,32 +99,40 @@ export default function Resume() {
       <p className="cs-lead">{resume.summary}</p>
     </Section>
 
-    <Section id="resume-strengths" title="Core strengths">
-      <ul className="resume-tags">{resume.strengths.map(item => <li key={item}>{item}</li>)}</ul>
+    <Section id="resume-skills" title="Skills">
+      <dl className="resume-skills">
+        {resume.skills.map(([group, text]) => <div key={group}><dt>{group}</dt><dd>{text}</dd></div>)}
+      </dl>
+    </Section>
+
+    <Section id="resume-work" title="Selected AI & product work">
+      <ol className="resume-entries">
+        {resume.work.map(item => <li key={item.name}>
+          <h3>{item.slug ? <Link to={caseLink(item.slug)}>{item.name}</Link> : item.name} — {item.kind}</h3>
+          <p className="resume-when">{item.stack}</p>
+          <Points items={item.points} />
+        </li>)}
+      </ol>
+      <p className="resume-more">
+        <strong>Also shipped:</strong>{" "}
+        {resume.alsoShipped.map((item, i) => <span key={item.slug}>{i > 0 && " · "}<Link to={caseLink(item.slug)}>{item.name}</Link></span>)}
+      </p>
+      <p className="resume-more"><Link to="/#work">See all 8 case studies →</Link></p>
     </Section>
 
     <Section id="resume-experience" title="Experience">
       <ol className="resume-entries">
         {resume.experience.map(job => <li key={job.org}>
-          <h3>{job.role} — {job.org}</h3>
-          <p className="resume-when">{[job.where, job.when].filter(Boolean).join(" · ")}</p>
-          <p>{job.text}</p>
+          <h3>{job.role}, {job.org}</h3>
+          <p className="resume-when">{job.when}</p>
+          <Points items={job.points} />
         </li>)}
       </ol>
     </Section>
 
-    <Section id="resume-products" title="Selected products">
-      <ul className="resume-entries">
-        {resume.products.map(item => <li key={item.name}>
-          <h3>{item.link ? <Link to={item.link}>{item.name}</Link> : item.name}</h3>
-          <p>{item.text}</p>
-        </li>)}
-      </ul>
-      <p className="resume-more"><Link to="/#work">See all 8 case studies →</Link></p>
-    </Section>
-
-    <Section id="resume-education" title="Education">
-      <ul className="cs-list">{resume.education.map(item => <li key={item}>{item}</li>)}</ul>
+    <Section id="resume-education" title="Education & certifications">
+      <ul className="cs-list">{resume.education.map(([what, where]) => <li key={what}><strong>{what}</strong>, {where}</li>)}</ul>
+      <p className="resume-more"><strong>Languages:</strong> {resume.languages}</p>
     </Section>
   </main>;
 }
