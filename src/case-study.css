@@ -573,6 +573,50 @@
 .cs2-states li { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-2); }
 .cs2-flow-note { margin: 0; font-size: 13px; color: var(--muted); }
 
+/* AI architecture */
+.cs2-specs { margin: 0; }
+
+.cs2-specs div {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 8px 24px;
+  border-top: 1px solid var(--rule);
+  padding: 14px 0;
+}
+
+.cs2-specs div:last-child { border-bottom: 1px solid var(--rule); }
+.cs2-specs dt { font-weight: 500; }
+.cs2-specs dd { margin: 0; font-size: 15px; line-height: 1.55; color: var(--body); }
+
+.cs2-evals h3 { margin: 0 0 14px; font-size: 18px; font-weight: 500; }
+
+.cs2-evals ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.cs2-evals li {
+  border-top: 2px solid var(--proj-acc);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cs2-eval-value { font-size: 36px; font-weight: 450; letter-spacing: -0.04em; }
+.cs2-eval-label { font-size: 15px; }
+.cs2-eval-note { font-size: 13px; color: var(--muted); }
+
+.cs2-live { display: flex; flex-wrap: wrap; gap: 0 28px; }
+
+@media (max-width: 1023px) {
+  .cs2-specs div { grid-template-columns: 1fr; }
+}
+
 /* 07 Built */
 .cs2-chips {
   list-style: none;
