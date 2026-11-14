@@ -62,12 +62,14 @@ const study = {
     title: "Grounded in the Konbit documents, honest about what isn't there.",
     flow: [
       { title: "Member question", sub: "Kreyòl, French or English" },
-      { title: "Claude", sub: "reads the Konbit documents (.md)", ai: true },
+      { title: "Retrieval", sub: "picks the relevant .md document or section" },
+      { title: "Claude", sub: "answers from that text only", ai: true },
       { title: "Answer + source", sub: "or: “contact an admin”" },
     ],
     specs: [
       { label: "Model", value: "Claude." },
-      { label: "Knowledge", value: "The Konbit documents, given to the model as Markdown (.md) files." },
+      { label: "Retrieval", value: "Retrieval-augmented generation without embeddings: before each answer, the app picks the Konbit document or section that matches the question and sends only that text to Claude." },
+      { label: "Knowledge", value: "The Konbit documents, stored as Markdown (.md) files." },
       { label: "Citations", value: "The model points to where it found the information, depending on the question, so members can check the answer themselves." },
       { label: "When the answer isn't there", value: "Odette says the answer isn't in the documents and tells the member to contact an admin, who can help." },
     ],

@@ -59,12 +59,13 @@ const study = {
     title: "Bible questions only, with the reference every time.",
     flow: [
       { title: "Member question", sub: "about the Bible" },
-      { title: "Claude", sub: "connected to a Bible API", ai: true },
+      { title: "Claude", sub: "decides when to call the Bible API", ai: true },
+      { title: "Bible API", sub: "returns the verses" },
       { title: "Answer + biblical reference", sub: "book, chapter, verse" },
     ],
     specs: [
       { label: "Model", value: "Claude." },
-      { label: "Data source", value: "A Bible API connected to the assistant." },
+      { label: "Retrieval", value: "Tool calling: Claude calls the Bible API when a question needs Scripture, gets the verses, then answers with them, so the text comes from the API, not from the model's memory." },
       { label: "Scope", value: "It answers only questions about the Bible." },
       { label: "Citations", value: "Every answer gives the biblical reference." },
     ],

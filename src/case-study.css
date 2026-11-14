@@ -525,18 +525,19 @@
   gap: 24px;
 }
 
+/* One column per step, so the flow never wraps (and no connector is left dangling). */
 .cs2-flow {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 60px;
+  display: grid;
+  grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+  gap: 16px 40px;
 }
 
 .cs2-flow li {
   position: relative;
-  min-width: 170px;
+  min-width: 0;
   box-sizing: border-box;
   border-radius: 14px;
   border: 1px solid var(--line-2);
@@ -552,7 +553,7 @@
   position: absolute;
   left: 100%;
   top: 50%;
-  width: 60px;
+  width: 40px;
   height: 2px;
   background: var(--line-2);
 }
@@ -811,7 +812,7 @@
   .cs2-decisions li { grid-template-columns: 44px minmax(0, 1fr); }
   .cs2-decision-text,
   .cs2-decision-shot { grid-column: 2 / -1; }
-  .cs2-flow { flex-direction: column; gap: 28px; }
+  .cs2-flow { grid-template-columns: 1fr; gap: 28px; }
   .cs2-flow li:not(:last-child)::after { left: 32px; top: 100%; width: 2px; height: 28px; }
   .cs2-visual.has-both { grid-template-columns: 1fr; }
   .cs2-next { grid-template-columns: 1fr; padding: 28px; gap: 24px; }

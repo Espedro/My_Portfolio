@@ -165,7 +165,12 @@ Update this file at the end of every work session: what changed, verification re
 - "AI architecture" chapters added from the owner's facts only:
   - Odette: Claude, Konbit documents given as .md, the model cites where it found the answer, "contact an admin" fallback;
   - BelieverHub assistant: Claude connected to a Bible API, Bible questions only, always gives the reference.
-  - No RAG/embeddings claimed.
+  - Clarified with the owner (2026-11-13):
+    - Odette = **RAG without embeddings**: the app picks the matching .md document or section and sends only that to Claude;
+    - BelieverHub = **tool calling**: Claude calls the Bible API, gets the verses, then answers (retrieval from an API).
+    - Both are now named that way in a "Retrieval" spec row.
+    - No embeddings or vector DB in any product.
+  - [ ] The resume lists "vector databases": nothing shipped uses one. Suggested project: real embeddings RAG for Odette (chunk .md, Supabase pgvector, top-k, section citations).
 - [ ] Dessalines case study: waiting for architecture details, a screenshot, and whether the repo can be public.
 - [ ] Suggested: a small Python eval for Odette (30–50 questions) as a public repo, to add real numbers and Python/eval proof.
 

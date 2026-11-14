@@ -164,7 +164,7 @@ function AiBehavior({ study }) {
   return <>
     <Statement text={ai.title} />
     <div className="cs2-flowbox reveal">
-      <ol className="cs2-flow">
+      <ol className="cs2-flow" style={{ "--n": ai.flow.length }}>
         {ai.flow.map(node => <li key={node.title} className={node.ai ? "is-ai" : ""}>
           <span className="cs2-flow-title">{node.title}</span>
           <span className="cs2-flow-sub">{node.sub}</span>
@@ -185,7 +185,7 @@ function AiArchitecture({ study }) {
   return <>
     <Statement text={a.title} />
     {a.flow?.length > 0 && <div className="cs2-flowbox reveal">
-      <ol className="cs2-flow">
+      <ol className="cs2-flow" style={{ "--n": a.flow.length }}>
         {a.flow.map(node => <li key={node.title} className={node.ai ? "is-ai" : ""}>
           <span className="cs2-flow-title">{node.title}</span>
           {node.sub && <span className="cs2-flow-sub">{node.sub}</span>}
