@@ -140,6 +140,19 @@ Update this file at the end of every work session: what changed, verification re
   - home: desktop 98/100/100/100.
 - [ ] Owner to write "What I learned" for each case study (field `learned`) and add real metrics when available.
 
+### 2026-11-13 — Resume page redesign + title change
+- Owner sent `Resume.dc.html`. Rebuilt `/resume` with it (`src/Resume.jsx` + `src/resume.css`).
+  - "10+ years" is removed everywhere (owner request): the resume snapshot and summary, the JSON-LD description and the OG image.
+  - The prototype's "[Add …]" placeholders are not rendered.
+- Title everywhere is now **"AI Engineer · UX Engineer · Product Designer"**:
+  - page titles, meta, OG and Twitter tags, JSON-LD `jobTitle` / `hasOccupation`, the homepage hero, the noscript text and the README;
+  - new `og-image.png` (Archivo, blue accent, E logo, portrait).
+- The homepage still uses "AI product building" as a discipline name (What I do, Tools). That's a skill area, not the job title.
+- Bug fixed: React rewriting a `className` wiped the `is-visible` reveal class (the first job vanished from the timeline). Dynamic state now uses `data-on`.
+  - **Rule:** never put changing classes on a `.reveal` element.
+- Nav numbers use `--muted` at full opacity (the 60% version failed contrast).
+- Lighthouse desktop 100/100/100/100 on /resume and AI BOS, 99/100/100/100 on home. /resume mobile 99/100/100/100.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).

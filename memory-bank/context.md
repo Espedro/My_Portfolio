@@ -20,7 +20,7 @@
 | `src/pages.js` | **Single source of truth** for routes, titles, descriptions, images, keywords, live URLs, case-study order |
 | `src/pages/*.jsx` | Home + one data object per case study, rendered by `src/CaseStudy.jsx` |
 | `src/home/` | Homepage sections (redesign): `HeroAndCaseStudies` (pinned stage, `Laptop3D`, `EMark`), `Numbers`, `MoreWork`, `WhatIDo` (id `about`), `HowIUseAI` (id `ai`), `Tools`, `HowIWork` (id `process`), `Contact` (id `contact`); copy in `homeData.js`; styles in `home.css` |
-| `src/Resume.jsx` | Web version of the resume (/resume) |
+| `src/Resume.jsx` + `src/resume.css` | Web version of the resume (/resume), from the owner's `Resume.dc.html` |
 | `src/CaseStudy.jsx` + `src/case-study.css` | Shared case-study template (from the owner's `CaseStudy-AIBOS.dc.html`, 2026-11-13): project-color hero with 3D laptop, chapter rail, numbered chapters built from the study data; optional fields documented at the top of the file |
 | `src/components.jsx` | Shared UI: Img (sized/lazy images), BrandMark (animated logo), ThemeToggle, useReducedMotion |
 | `src/Header.jsx`, `src/Footer.jsx` | Shared chrome |
