@@ -6,33 +6,35 @@ export function study(slug) {
   return caseStudies.find(item => item.slug === slug);
 }
 
+// Project colors live in caseStudies (pages.js). Getters read them lazily, after pages.js has loaded.
+const withColors = item => Object.defineProperties(item, {
+  bg: { get: () => study(item.slug).bg, enumerable: true },
+  accent: { get: () => study(item.slug).accent, enumerable: true },
+});
+
 // Pinned "selected case study" stage: order, colors and copy.
 export const featured = [
   { slug: "believerhub", tags: "Community · Product design · AI", practice: "Product strategy / UX / Design system",
-    desc: "A place for faith to become fellowship. Connecting prayer, small groups, and an AI Bible assistant around real human relationships.",
-    bg: "#1d2949", accent: "#f5c842" },
+    desc: "A place for faith to become fellowship. Connecting prayer, small groups, and an AI Bible assistant around real human relationships." },
   { slug: "votpam", tags: "Civic tech · Trust design · Next.js", practice: "Trust design / UX engineering",
-    desc: "Non-partisan civic information and opinion polls for Haiti’s 2027 elections: 4,037 candidates, sourced documents, and polls nobody mistakes for a vote.",
-    bg: "#16308a", accent: "#ff6b70" },
+    desc: "Non-partisan civic information and opinion polls for Haiti’s 2027 elections: 4,037 candidates, sourced documents, and polls nobody mistakes for a vote." },
   { slug: "ai-bos-crm", tags: "AI product design · Human-in-the-loop", practice: "AI product design / Front-end build",
-    desc: "A CRM where an AI Employee answers WhatsApp, Messenger and Instagram leads, and hands off to a person when judgment is needed.",
-    bg: "#2a1c5a", accent: "#b4a2ff" },
+    desc: "A CRM where an AI Employee answers WhatsApp, Messenger and Instagram leads, and hands off to a person when judgment is needed." },
   { slug: "agrodoc", tags: "Health tech · Offline-first PWA", practice: "UX engineering / Offline-first PWA",
-    desc: "Offline-first clinic records for Haiti, encrypted on every device and synced when the network returns.",
-    bg: "#0a5470", accent: "#6ee7d8" },
-];
+    desc: "Offline-first clinic records for Haiti, encrypted on every device and synced when the network returns." },
+].map(withColors);
 
 // Horizontal "More work" cards.
 export const moreWork = [
-  { slug: "kominote-konbit", tags: "AI assistant · Community platform", bg: "#c8202b", accent: "#ffd2cc",
+  { slug: "kominote-konbit", tags: "AI assistant · Community platform",
     desc: "A digital home for Konbit members to connect, organize their local cell and learn, with an AI assistant that cites its sources.", alt: "Kominote Konbit home page" },
-  { slug: "footlakay", tags: "UX engineering · Localization · Full-stack", bg: "#0f4a30", accent: "#f4d35e",
+  { slug: "footlakay", tags: "UX engineering · Localization · Full-stack",
     desc: "A World Cup fan platform for the Haitian diaspora, in four languages.", alt: "FootLakay home page" },
-  { slug: "maket-lakay", tags: "Marketplace UX · Trust design", bg: "#a8480c", accent: "#ffe2b8",
+  { slug: "maket-lakay", tags: "Marketplace UX · Trust design",
     desc: "A multi-vendor marketplace linking Haitian businesses, local shoppers and the diaspora.", alt: "Maket Lakay storefront" },
-  { slug: "media-innovation", tags: "Brand system · UX/UI · React SPA", bg: "#0b5d94", accent: "#bfe6ff",
+  { slug: "media-innovation", tags: "Brand system · UX/UI · React SPA",
     desc: "A five-page React site and brand system for a creative-technology agency.", alt: "Media Innovation home page" },
-];
+].map(withColors);
 
 export const disciplines = [
   { title: "UX design", text: "I turn user problems, competitive gaps and stakeholder goals into information architecture, flows and interface decisions with visible rationale.",
