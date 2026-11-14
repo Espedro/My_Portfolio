@@ -24,6 +24,16 @@ const redirectPage = `<!doctype html>
 // Keep existing case-study URLs usable even on hosts without SPA rewrites.
 export default defineConfig({
   esbuild: { jsx: 'automatic' },
+  build: {
+    rollupOptions: {
+      // motion and react-router ship "use client" directives, which are meaningless in a client-only build.
+      onwarn(warning, warn) {
+        if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return;
+        warn(warning);
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
   plugins: [{
     name: 'case-study-entry-pages',
     async closeBundle() {

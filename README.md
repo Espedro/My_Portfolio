@@ -1,6 +1,6 @@
 # Espedro Neptune Portfolio
 
-Portfolio of Espedro Neptune, UX Engineer, Product Designer and AI Product Builder. Built with React 19, React Router 7 and Vite 7. The previous static version of the site lives in this repository's history on `master`.
+Portfolio of Espedro Neptune, AI Engineer, UX Engineer and Product Designer. Built with React 19, React Router 7 and Vite 7. The previous static version of the site lives in this repository's history on `master`.
 
 ## Development
 

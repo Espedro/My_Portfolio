@@ -8,9 +8,9 @@
   3. **AI Product Builder** — shipping AI-powered products, human-in-the-loop, guardrails, AI in the build workflow.
 
 ## Stack
-- React 19, React Router 7 (`BrowserRouter`), Vite 7. No CSS framework: hand-written `src/styles.css` + `src/react.css`.
+- React 19, React Router 7 (`BrowserRouter`), Vite 7, **motion** (scroll-linked animation on the homepage, used through `LazyMotion` + `m`). No CSS framework: hand-written `src/styles.css` + `src/react.css` + `src/home/home.css`.
 - Static deploy of `dist/`. `vite.config.js` copies `index.html` to `dist/case-studies/<slug>.html` for every file in `src/pages/` (except Home), so direct links work without SPA rewrites.
-- No git repository yet. No test runner.
+- Git: https://github.com/Espedro/My_Portfolio (`master`). No test runner.
 
 ## File map
 | Path | Role |
@@ -19,7 +19,9 @@
 | `src/main.jsx` | Router, per-page lifecycle (title, meta, OG, JSON-LD, reveal animations, scroll) |
 | `src/pages.js` | **Single source of truth** for routes, titles, descriptions, images, keywords, live URLs, case-study order |
 | `src/pages/*.jsx` | Home + one data object per case study, rendered by `src/CaseStudy.jsx` |
-| `src/CaseStudy.jsx` | Shared case-study template (from the owner's `CaseStudy-ai-bos-crm.dc.html`) |
+| `src/home/` | Homepage sections (redesign): `HeroAndCaseStudies` (pinned stage, `Laptop3D`, `EMark`), `Numbers`, `MoreWork`, `WhatIDo` (id `about`), `HowIUseAI` (id `ai`), `Tools`, `HowIWork` (id `process`), `Contact` (id `contact`); copy in `homeData.js`; styles in `home.css` |
+| `src/Resume.jsx` + `src/resume.css` | Web version of the resume (/resume), from the owner's `Resume.dc.html` |
+| `src/CaseStudy.jsx` + `src/case-study.css` | Shared case-study template (from the owner's `CaseStudy-AIBOS.dc.html`, 2026-11-13): project-color hero with 3D laptop, chapter rail, numbered chapters built from the study data; optional fields documented at the top of the file |
 | `src/components.jsx` | Shared UI: Img (sized/lazy images), BrandMark (animated logo), ThemeToggle, useReducedMotion |
 | `src/Header.jsx`, `src/Footer.jsx` | Shared chrome |
 | `public/assets/` | Images, resume, favicon |
@@ -47,9 +49,11 @@ Removed on 2026-11-05: ICOM, TRACKOM, MIZIKANOU, TRIBALSCALE, BLOXIDE, EATHY, Le
 - Public email: espedroneptune@gmail.com (already public on the resume)
 
 ## Visual design
-- Source of truth: the owner's `Main.dc.html` design (editorial, typographic). Font **Archivo** (variable width/weight, Google Fonts). Light: bg #F4F4F1, ink #121212, accent #B3301A. Dark: bg #121211, ink #EDEDE8, accent #F2694D. 2px corners, 1px rules, no shadows.
+- Homepage source of truth (from 2026-11-13): the owner's `prototype-reference.html` (scroll-driven, 3D laptop). Case studies follow `CaseStudy-AIBOS.dc.html`. Header (all pages): logo + "ESPEDRO / NEPTUNE" on two lines, numbered links on the right (01 Work · 02 About · 03 AI · 04 Contact · 05 Resume), "Let's talk ↗" (Calendly), round theme button.
+- Case-study order = homepage order (BelieverHub, VotPam, AI BOS CRM, Agrodoc, Kominote Konbit, FootLakay, Maket Lakay, Media Innovation) and project colors (`bg`, `accent`) live in `caseStudies` in `src/pages.js`. On case pages `--proj-acc` = bg in light theme, accent in dark theme. Font **Archivo**. Light: bg #f6f6f1, ink #141413, accent #2563eb. Dark: bg #121211, ink #edede8, accent #4f8cff (site-wide since 2026-11-13; before that the accent was red/orange). Project colors for the stage and cards live in `src/home/homeData.js`.
 - Tokens live at the top of `src/react.css`; they also alias the legacy variables in `styles.css` used by case-study pages.
-- The header keeps the original animated logo mark (`BrandMark` in components.jsx; CSS in styles.css `.logo-piece`).
+- The header keeps the original animated logo mark (`BrandMark` in components.jsx; CSS in styles.css `.logo-piece`) and the original nav (Work · About · AI · Contact · Resume). On the homepage it floats over the stage (`.topbar--overlay`, classes `is-over-stage` / `is-glass` set from scroll in `src/home/ui.jsx`).
+- Every big "E" on the homepage uses the real logo proportions (middle bar shorter): `eRects()` in `src/home/EMark.jsx`.
 - No portrait on the page (owner's choice); the photo is only in JSON-LD `Person.image` for Google and in og-image.png.
 - Theme defaults to the OS setting; a click on the toggle stores an explicit choice.
 

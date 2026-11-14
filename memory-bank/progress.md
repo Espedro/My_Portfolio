@@ -102,6 +102,59 @@ Update this file at the end of every work session: what changed, verification re
   - **PDF:** still says Orlando and `linkedin.com/in/espedroneptune`.
   - `public/assets/ESPEDRONEPTUNE_Resume.docx` is the OLD resume and is still publicly reachable (not linked).
 
+### 2026-11-13 — Homepage redesign (branch `homepage-redesign`, not deployed)
+- Owner sent `prototype-reference.html` and a full spec. Owner decisions: keep the **current nav** (Work · About · AI · Contact · Resume); footer says **USA, FL**, not Orlando; **blue accent site-wide**; every E uses the **real logo shape**; use the prototype's hero copy.
+- Built in `src/home/` (see context.md). Scroll lengths (H = 100vh): stage 605vh (hold 0.28 → morph 1.0 → 3 × 1.1 → end 0.47), More work 100vh + track width, How I use AI 300vh, How I work 278vh; the rest isn't pinned.
+- Engineering: there's no React render per scroll frame. Everything runs on MotionValues (`useScroll` / `useTransform`), transforms, opacity and clip-path strings. State changes only at thresholds (active project, active principle, reached step). The E landing targets come from a hidden "ghost" laptop in the landing pose, measured with getBoundingClientRect on mount and resize.
+- Below 1024px: the laptop stays centered with the copy underneath and the wipe coming from the bottom. More work uses native scroll-snap. AI and process are stacked and use IntersectionObserver.
+- Reduced motion: static hero, one colored panel per case study, no loops, no pulse, no marquee.
+- Accessibility: inactive case-study copy is `inert` + `aria-hidden`. Dimmed text (AI principles, process steps, diagram) uses full-ink text at 60% opacity instead of 28–30%, so it still passes 4.5:1. Color layers that haven't started their wipe are set to opacity 0, because axe ignores clip-path.
+- Bugs found and fixed while testing:
+  - `.sr-only` text in More work cards escaped the scroller and made the mobile layout viewport 1536px wide (fix: `.mw-card { position: relative }`);
+  - `react.css` loads after `home.css`, so the header overlay needed higher specificity;
+  - the header height was read before the header was mounted;
+  - the contact mask clipped the "g" descender;
+  - global `img { max-width: 100% }` broke the More work parallax.
+- Lighthouse: Home desktop 100/100/100/100. Home mobile 87/100/100/100 (LCP 3.3s; was 90–93). VotPam mobile 95/100/100/100. No horizontal scroll at 375/390/768.
+- JS bundle: 108 → 160 KB gzip (+51 KB, mostly motion, already using LazyMotion).
+- Known: at the E hand-off the landed tiles are 2–3px larger than the real logo, because getBoundingClientRect returns the axis-aligned box around slanted blocks (the prototype has the same behavior).
+- Owner review, round 1: "How I use AI" is now centered on wide screens (`.ai-sticky` justify-content center, diagram column fixed at 700px). More work card links stay white on hover (global hover is accent blue).
+- [ ] Owner review of the local build, then merge `homepage-redesign` → `master` and redeploy the zip.
+
+### 2026-11-13 — New case-study template + header (branch `homepage-redesign`)
+- Owner sent `CaseStudy-AIBOS.dc.html` and wants all 8 case studies like it. They also want its header with the current links numbered on the right, plus "Let's talk" and a round theme button.
+- Template: `src/CaseStudy.jsx` + `src/case-study.css`.
+  - Each page keeps its `study` object. New optional fields only render when present: `approachTitle`, `structure.figure`, `decisionsTitle`, `decisionsShot` (with pins), `decisions[].instead`, `aiBehavior`, `buildChips`, `visual.image`, `visual.swatches`, `outcomeTitle`, `learned`.
+  - The prototype's placeholders ("SCREENSHOT TO ADD", "METRIC TO ADD", "[Your lesson]") are never rendered.
+- AI BOS CRM: 3 screenshots captured from the live landing page (`ai-bos-crm-dashboard.jpg`, `-steps.jpg`, `-features.jpg`), plus the prototype's copy.
+- CLS fixes:
+  - an Arial fallback font sized to Archivo (`size-adjust: 98.6%`);
+  - titles break before the last word;
+  - on phones the laptop sits above the hero text.
+  - Result: Kominote mobile CLS went from 0.33 to 0.001.
+- Removed 162 unused rules from react.css (old homepage + old case template). `/resume` still uses a few `cs-*` classes.
+- Lighthouse:
+  - AI BOS: mobile 85/100/100/100, desktop 100/100/100/100;
+  - VotPam: mobile 94/100/100/100;
+  - Kominote: mobile 90/100/100/100;
+  - home: desktop 98/100/100/100.
+- [ ] Owner to write "What I learned" for each case study (field `learned`) and add real metrics when available.
+
+### 2026-11-13 — Resume page redesign + title change
+- Owner sent `Resume.dc.html`. Rebuilt `/resume` with it (`src/Resume.jsx` + `src/resume.css`).
+  - "10+ years" is removed everywhere (owner request): the resume snapshot and summary, the JSON-LD description and the OG image.
+  - The prototype's "[Add …]" placeholders are not rendered.
+- Title everywhere is now **"AI Engineer · UX Engineer · Product Designer"**:
+  - page titles, meta, OG and Twitter tags, JSON-LD `jobTitle` / `hasOccupation`, the homepage hero, the noscript text and the README;
+  - new `og-image.png` (Archivo, blue accent, E logo, portrait).
+- The homepage still uses "AI product building" as a discipline name (What I do, Tools). That's a skill area, not the job title.
+- Bug fixed: React rewriting a `className` wiped the `is-visible` reveal class (the first job vanished from the timeline). Dynamic state now uses `data-on`.
+  - **Rule:** never put changing classes on a `.reveal` element.
+- Nav numbers use `--muted` at full opacity (the 60% version failed contrast).
+- Lighthouse desktop 100/100/100/100 on /resume and AI BOS, 99/100/100/100 on home. /resume mobile 99/100/100/100.
+
+- 2026-11-13: /resume summary replaced with the owner-approved "version A" (AI Engineer first, 8 live / 3 with AI as proof, human-in-the-loop work). [ ] Owner to copy it into the PDF.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).

@@ -30,6 +30,7 @@ const study = {
     body: ["The product had to fix speed at the root, with a first responder that never sleeps, without becoming a black box that tries to handle every conversation alone and gets the high-stakes moments wrong."],
   },
   keyDecision: "The AI handles the repetitive work. A person handles judgment.",
+  approachTitle: "Four principles, one product.",
   approach: [
     { lead: "One inbox.", text: "WhatsApp, Messenger and Instagram in one place, so the team stops working channel by channel." },
     { lead: "An AI that knows the business.", text: "It uses business-specific resources to answer questions, qualify leads and move deals forward." },
@@ -38,17 +39,45 @@ const study = {
   ],
   structure: {
     intro: "Three jobs, in the order a lead moves through them.",
+    figure: {
+      src: "/assets/ai-bos-crm-steps.jpg",
+      alt: "How it works on the AI BOS landing page: connect your channels, teach your AI Employee, let it work",
+      caption: "The same three steps, told to customers on the landing page.",
+    },
     steps: [
       { title: "Respond", text: "One inbox for every channel, with the AI Employee answering first, day and night." },
       { title: "Qualify", text: "The AI answers questions and qualifies leads, moving them through the pipeline without manual data entry." },
       { title: "Escalate", text: "The dashboard surfaces conversations that need a person, with pipeline value, response time and automation health in view." },
     ],
   },
+  decisionsTitle: "Three decisions, all visible on one screen.",
+  decisionsShot: {
+    src: "/assets/ai-bos-crm-dashboard.jpg",
+    alt: "AI BOS CRM dashboard: channel list in the sidebar, KPI row, pipeline board, automation health with human hand-off status, and a needs-attention list",
+    caption: "The dashboard. 1: every channel in one sidebar. 2: hand-off status inside automation health. 3: the whole funnel in one KPI row.",
+    pins: [{ x: 3, y: 52 }, { x: 92, y: 68 }, { x: 50, y: 17 }],
+  },
   decisions: [
-    { title: "A single inbox for every channel", text: "Conversations from WhatsApp, Messenger and Instagram live in one workspace, so nobody has to rebuild a customer's history across separate apps." },
-    { title: "An AI Employee, not full autonomy", text: "The AI takes the repetitive interactions and escalates when judgment matters. It is a deliberate limit that keeps the product trustworthy instead of trying to automate everything." },
-    { title: "One screen for the whole funnel", text: "New leads, active conversations, items waiting on a person, open pipeline value, overdue tasks and AI response time sit together, so the state of the business reads at a glance." },
+    { title: "A single inbox for every channel", instead: "a separate app per channel", text: "Conversations from WhatsApp, Messenger and Instagram live in one workspace, so nobody has to rebuild a customer's history across separate apps." },
+    { title: "An AI Employee, not full autonomy", instead: "automating every conversation", text: "The AI takes the repetitive interactions and escalates when judgment matters. It is a deliberate limit that keeps the product trustworthy instead of trying to automate everything." },
+    { title: "One screen for the whole funnel", instead: "a report per metric", text: "New leads, active conversations, items waiting on a person, open pipeline value, overdue tasks and AI response time sit together, so the state of the business reads at a glance." },
   ],
+  aiBehavior: {
+    title: "Designed for the moments it should step back.",
+    flow: [
+      { title: "Incoming lead", sub: "WhatsApp · IG · FB" },
+      { title: "AI Employee", sub: "answers · qualifies · logs", ai: true },
+      { title: "Hand-off rule", sub: "judgment needed? → a person takes over" },
+    ],
+    states: [
+      { label: "Connected", color: "#16a34a" },
+      { label: "Off", color: "var(--muted)" },
+      { label: "Waiting on a person", color: "#ea580c" },
+      { label: "AI response time visible", color: "var(--proj-acc)" },
+    ],
+    note: "Every state is on screen. People check the AI instead of trusting a black box.",
+  },
+  buildChips: ["Claude · ChatGPT in the build"],
   built: [
     "Next.js, React and TypeScript for a type-safe dashboard and pipeline.",
     "Tailwind CSS and shadcn/ui for one consistent, accessible component system across inbox, pipeline and settings.",
@@ -59,7 +88,15 @@ const study = {
   visual: {
     lead: "The dashboard is the proof. Instead of illustrating the AI Employee in the abstract, the landing page shows the real command center, so visitors see the product, not a mockup of an idea.",
     body: ["A light SaaS canvas keeps the data readable, with the brand color carried through the wordmark, key headline words and primary actions."],
+    image: { src: "/assets/ai-bos-crm-features.jpg", alt: "AI BOS feature cards: AI Employee, one inbox, pipeline, forms, campaigns, human in the loop" },
+    swatches: [
+      { name: "Action blue", hex: "#4A92F2", ink: "#0b1a33", approx: true },
+      { name: "Accent violet", hex: "#8665BA", ink: "#ffffff", approx: true },
+      { name: "Ink", hex: "#111216", ink: "#ffffff" },
+      { name: "Canvas", hex: "#F0F1F6", ink: "#111216" },
+    ],
   },
+  outcomeTitle: "Launched as a complete product, designed and built solo.",
   outcome: {
     lead: "AI BOS CRM launched as a complete product: unified inbox, automated pipeline and an AI Employee that knows when to step back. Designed and built solo.",
     items: [
