@@ -7,6 +7,8 @@ import "./resume.css";
 // Web version of the resume, laid out from the owner's Resume.dc.html.
 // Content comes from public/assets/Espedro-Neptune-Resume.pdf (2026-11-13 evening version, summary = version A).
 // When the resume changes, update this object AND replace the PDF.
+// 2026-11-13: Kominote and BelieverHub lines + AI Engineering skills (no "vector databases") updated here first;
+// the owner is copying the same lines into the PDF.
 // Deliberate differences from the PDF: location is "USA, FL", no phone number, GitHub added.
 const resume = {
   title: "AI Engineer · UX Engineer · Product Designer",
@@ -24,15 +26,15 @@ const resume = {
     { name: "Dessalines", kind: "Self-hosted AI agent", ai: true, color: "#24323f", stack: "OpenClaw · LiteLLM · MCP · Telegram",
       text: "Deployed a personal AI agent on a Linux VPS, connected through MCP to Gmail, Google Calendar and Docs, and reachable from Telegram. Designed human-in-the-loop guardrails: the agent asks for confirmation before any write action." },
     { slug: "kominote-konbit", kind: "Community platform with AI assistant", ai: true, stack: "React · Supabase · Lovable",
-      text: "Built “Konbitèz Odette,” an AI assistant grounded in the Konbit reference guide as its private knowledge base, plus guided onboarding, on the BelieverHub architecture." },
+      text: "Built “Konbitèz Odette,” a Claude assistant with retrieval: before each answer the app selects the matching Konbit document, and Odette cites its source or refers the member to an admin. Guided onboarding on the BelieverHub architecture." },
     { slug: "ai-bos-crm", kind: "AI-assisted CRM", ai: true, stack: "LLM · Human handoff",
       text: "Built a CRM with an AI layer in production that hands the conversation off to a person whenever judgment is needed." },
     { slug: "footlakay", kind: "World Cup 2026 prediction platform", stack: "React · Tailwind · Supabase · API-Sports",
       text: "Shipped a four-language platform with live fixtures, automated scoring (Edge Functions, pg_cron), a social Fan Zone, sponsor management and an AI chatbot persona." },
     { slug: "votpam", kind: "Civic information & opinion polls", stack: "Figma design system · Web app",
       text: "Designed candidate profiles, a news feed and poll results on a dedicated design system built for the platform." },
-    { slug: "believerhub", kind: "Faith-based community platform", ai: true, stack: "User research → Production",
-      text: "Took the product from user research to production; its architecture became the foundation for Kominote Konbit." },
+    { slug: "believerhub", kind: "Faith-based community platform with AI assistant", ai: true, stack: "User research → Production",
+      text: "Took the product from user research to production, including an AI Bible assistant built with Claude tool calling to a Bible API: it answers Bible questions only and always gives the reference. Its architecture became the foundation for Kominote Konbit." },
   ],
   alsoShipped: ["agrodoc", "maket-lakay"],
   experience: [
@@ -47,7 +49,7 @@ const resume = {
   ],
   skills: [
     { name: "AI Engineering", proof: "Proof: Dessalines (MCP, guardrails), Kominote Konbit (knowledge-grounded assistant)",
-      items: ["Claude & OpenAI APIs", "Prompt & system design", "MCP integrations", "LiteLLM", "OpenRouter", "Self-hosted agents (OpenClaw)", "Python", "RAG", "Vector databases", "Agents with tool calling & guardrails", "Multi-agent workflows", "FastAPI", "REST APIs", "n8n", "WebSockets", "Async queues", "Data pipelines & telemetry", "Docker", "Testing", "LLM app security (OWASP)"] },
+      items: ["Claude & OpenAI APIs", "Prompt & system design", "MCP integrations", "LiteLLM", "OpenRouter", "Self-hosted agents (OpenClaw)", "Python", "RAG (document retrieval)", "Agents with tool calling & guardrails", "Multi-agent workflows", "FastAPI", "REST APIs", "n8n", "WebSockets", "Async queues", "Data pipelines & telemetry", "Docker", "Testing", "LLM app security (OWASP)"] },
     { name: "Engineering", proof: "Proof: FootLakay, AI BOS CRM",
       items: ["JavaScript", "React", "Next.js", "Node.js", "Express", "Vite", "Tailwind CSS", "Supabase (PostgreSQL, Auth, RLS, Edge Functions, pg_cron)", "REST APIs", "Stripe", "WordPress", "Linux VPS / SSH"] },
     { name: "Product & UX", proof: "Proof: BelieverHub, VotPam",

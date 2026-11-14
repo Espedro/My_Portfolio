@@ -57,6 +57,23 @@ const study = {
   gallery: [
     { src: "/assets/kominote-konbit-hero.jpg", alt: "Kominote Konbit headline “Ansanm, nou pi fò.” on a red band under the community illustration", caption: "“Ansanm, nou pi fò.” The promise sits on a bold red band, with “create my account” and “I already have an account” side by side." },
   ],
+  // Technical view of Konbitèz Odette. Facts from the owner (2026-11-13); nothing added.
+  aiArchitecture: {
+    title: "Grounded in the Konbit documents, honest about what isn't there.",
+    flow: [
+      { title: "Member question", sub: "Kreyòl, French or English" },
+      { title: "Retrieval", sub: "picks the relevant .md document or section" },
+      { title: "Claude", sub: "answers from that text only", ai: true },
+      { title: "Answer + source", sub: "or: “contact an admin”" },
+    ],
+    specs: [
+      { label: "Model", value: "Claude." },
+      { label: "Retrieval", value: "Retrieval-augmented generation without embeddings: before each answer, the app picks the Konbit document or section that matches the question and sends only that text to Claude." },
+      { label: "Knowledge", value: "The Konbit documents, stored as Markdown (.md) files." },
+      { label: "Citations", value: "The model points to where it found the information, depending on the question, so members can check the answer themselves." },
+      { label: "When the answer isn't there", value: "Odette says the answer isn't in the documents and tells the member to contact an admin, who can help." },
+    ],
+  },
   built: [
     "Designed and built end to end as a responsive web app.",
     "Kreyòl-first interface with French and English; Odette replies in the language the member writes in.",

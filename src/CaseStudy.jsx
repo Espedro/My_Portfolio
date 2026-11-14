@@ -26,6 +26,7 @@ import "./case-study.css";
 //   decisions: [{ title, instead?, text, image?: { src, alt } }],
 //   gallery?: [{ src, alt, caption }],
 //   aiBehavior?: { title?, flow: [{ title, sub, ai? }], states: [{ label, color }], note },
+//   aiArchitecture?: { title?, flow: [{ title, sub?, ai? }], specs: [{ label, value }], evals?: [{ label, value, note? }], evalNote? },
 //   buildChips?: [string], built: [string],
 //   visual: { lead, body: [string], image?: { src, alt }, swatches?: [{ name, hex, ink }] },
 //   outcomeTitle?, outcome: { lead, items: [string] },
@@ -163,7 +164,7 @@ function AiBehavior({ study }) {
   return <>
     <Statement text={ai.title} />
     <div className="cs2-flowbox reveal">
-      <ol className="cs2-flow">
+      <ol className="cs2-flow" style={{ "--n": ai.flow.length }}>
         {ai.flow.map(node => <li key={node.title} className={node.ai ? "is-ai" : ""}>
           <span className="cs2-flow-title">{node.title}</span>
           <span className="cs2-flow-sub">{node.sub}</span>
@@ -174,6 +175,31 @@ function AiBehavior({ study }) {
       </ul>
       {ai.note && <p className="cs2-flow-note">{ai.note}</p>}
     </div>
+  </>;
+}
+
+// Technical view of an AI feature, for AI Engineer readers. Every value comes from the owner.
+// aiArchitecture = { title?, flow: [{ title, sub, ai? }], specs: [{ label, value }], evals?: [{ label, value, note? }], evalNote? }
+function AiArchitecture({ study }) {
+  const a = study.aiArchitecture;
+  return <>
+    <Statement text={a.title} />
+    {a.flow?.length > 0 && <div className="cs2-flowbox reveal">
+      <ol className="cs2-flow" style={{ "--n": a.flow.length }}>
+        {a.flow.map(node => <li key={node.title} className={node.ai ? "is-ai" : ""}>
+          <span className="cs2-flow-title">{node.title}</span>
+          {node.sub && <span className="cs2-flow-sub">{node.sub}</span>}
+        </li>)}
+      </ol>
+    </div>}
+    {a.specs?.length > 0 && <dl className="cs2-specs reveal">
+      {a.specs.map(item => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
+    </dl>}
+    {a.evals?.length > 0 && <div className="cs2-evals reveal">
+      <h3>Evaluation</h3>
+      <ul>{a.evals.map(e => <li key={e.label}><span className="cs2-eval-value">{e.value}</span><span className="cs2-eval-label">{e.label}</span>{e.note && <span className="cs2-eval-note">{e.note}</span>}</li>)}</ul>
+      {a.evalNote && <p className="cs2-flow-note">{a.evalNote}</p>}
+    </div>}
   </>;
 }
 
@@ -209,7 +235,10 @@ function Outcome({ study, page }) {
     <Statement text={study.outcomeTitle} />
     {study.outcome.lead && !study.outcomeTitle && <p className="cs2-lead reveal">{study.outcome.lead}</p>}
     <ul className="cs2-cols3">{study.outcome.items.map(item => <li key={item} className="reveal">{item}</li>)}</ul>
-    <p className="cs2-live reveal"><a href={page.liveUrl} target="_blank" rel="noreferrer">Visit the live product<span className="sr-only"> (opens in a new tab)</span> <Arrow /></a></p>
+    {(page.liveUrl || page.repoUrl) && <p className="cs2-live reveal">
+      {page.liveUrl && <a href={page.liveUrl} target="_blank" rel="noreferrer">Visit the live product<span className="sr-only"> (opens in a new tab)</span> <Arrow /></a>}
+      {page.repoUrl && <a href={page.repoUrl} target="_blank" rel="noreferrer">Code on GitHub<span className="sr-only"> (opens in a new tab)</span> <Arrow /></a>}
+    </p>}
   </>;
 }
 
@@ -228,6 +257,7 @@ function buildChapters(study, page) {
     ["structure", "Product structure", study.structure && <Structure study={study} />],
     ["decisions", "Design decisions", study.decisions && <Decisions study={study} />],
     ["ai-behavior", "How the AI behaves", study.aiBehavior && <AiBehavior study={study} />],
+    ["ai-architecture", "AI architecture", study.aiArchitecture && <AiArchitecture study={study} />],
     ["built", "How it’s built", study.built && <Built study={study} />],
     ["visual", "Visual system", study.visual && <Visual study={study} />],
     ["outcome", "Outcome", study.outcome && <Outcome study={study} page={page} />],
@@ -330,8 +360,10 @@ export default function CaseStudy({ study }) {
         <HeroLaptop study={study} heroRef={heroRef} reduced={reduced} desktop={desktop} />
         <dl className="cs2-meta">
           {meta.map(item => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
-          <div><dt>Status</dt><dd className="cs2-status"><span className="cs2-live-dot" aria-hidden="true" />
-            <a href={page.liveUrl} target="_blank" rel="noreferrer">Live product<span className="sr-only"> (opens in a new tab)</span> ↗</a></dd></div>
+          {page.liveUrl && <div><dt>Status</dt><dd className="cs2-status"><span className="cs2-live-dot" aria-hidden="true" />
+            <a href={page.liveUrl} target="_blank" rel="noreferrer">Live product<span className="sr-only"> (opens in a new tab)</span> ↗</a></dd></div>}
+          {!page.liveUrl && page.repoUrl && <div><dt>Code</dt><dd>
+            <a href={page.repoUrl} target="_blank" rel="noreferrer">GitHub repo<span className="sr-only"> (opens in a new tab)</span> ↗</a></dd></div>}
         </dl>
       </section>
 

@@ -157,6 +157,25 @@ Update this file at the end of every work session: what changed, verification re
 
 - 2026-11-13: owner confirmed the 3 deliberate web/PDF differences: no phone on the site, GitHub link kept, BelieverHub AI tag kept. **Merged `homepage-redesign` into `master`** (08d5eb7) and pushed. New `portfolio-dist.zip` built from master. [x] Owner uploaded it on 2026-11-13. Verified live: home, /resume and case pages render with no errors; assets, robots, sitemap, OG image and the latest PDF return 200; retired URLs redirect to /#work; no source files exposed (unknown .jsx/.md paths fall back to index.html, .js/.json return 404).
 
+### 2026-11-13 — AI Engineer positioning (branch `ai-engineer-proof`)
+- Assessment given to the owner:
+  - strong for AI Product Engineer, Applied AI and Design Engineer (AI) roles;
+  - weak for pure AI Engineer roles: no system-level write-ups, no code or eval proof, Dessalines has no case study.
+- Template: optional `aiArchitecture` chapter (flow, specs, optional evals), optional `repoUrl`, and pages without `liveUrl` (for Dessalines).
+- "AI architecture" chapters added from the owner's facts only:
+  - Odette: Claude, Konbit documents given as .md, the model cites where it found the answer, "contact an admin" fallback;
+  - BelieverHub assistant: Claude connected to a Bible API, Bible questions only, always gives the reference.
+  - Clarified with the owner (2026-11-13):
+    - Odette = **RAG without embeddings**: the app picks the matching .md document or section and sends only that to Claude;
+    - BelieverHub = **tool calling**: Claude calls the Bible API, gets the verses, then answers (retrieval from an API).
+    - Both are now named that way in a "Retrieval" spec row.
+    - No embeddings or vector DB in any product.
+  - [ ] The resume lists "vector databases": nothing shipped uses one. Suggested project: real embeddings RAG for Odette (chunk .md, Supabase pgvector, top-k, section citations).
+- [ ] Dessalines case study: waiting for architecture details, a screenshot, and whether the repo can be public.
+- [ ] Suggested: a small Python eval for Odette (30–50 questions) as a public repo, to add real numbers and Python/eval proof.
+
+- 2026-11-13: resume aligned with the AI architecture work: "Vector databases" removed, "RAG (document retrieval)", new Kominote and BelieverHub lines (retrieval / tool calling). **Merged `ai-engineer-proof` into `master`.** [ ] Owner to copy the same 3 lines into the PDF, then send it. [ ] Upload the new zip.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
