@@ -5,6 +5,9 @@ import Numbers from "../home/Numbers.jsx";
 import MoreWork from "../home/MoreWork.jsx";
 import WhatIDo from "../home/WhatIDo.jsx";
 import HowIUseAI from "../home/HowIUseAI.jsx";
+import Tools from "../home/Tools.jsx";
+import HowIWork from "../home/HowIWork.jsx";
+import Contact from "../home/Contact.jsx";
 import "../home/home.css";
 
 // Homepage (redesign from prototype-reference.html). Each section is its own component in src/home/.
@@ -16,5 +19,8 @@ export default function Home() {
     <MoreWork reduced={reduced} />
     <WhatIDo reduced={reduced} />
     <HowIUseAI reduced={reduced} />
+    <Tools reduced={reduced} />
+    <HowIWork reduced={reduced} />
+    <Contact reduced={reduced} />
   </main></LazyMotion>;
 }
