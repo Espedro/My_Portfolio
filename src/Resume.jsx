@@ -5,7 +5,8 @@ import { caseStudies, profile } from "./pages.js";
 import "./resume.css";
 
 // Web version of the resume, laid out from the owner's Resume.dc.html.
-// Content comes from public/assets/Espedro-Neptune-Resume.pdf (2026-11-10 version).
+// Content comes from public/assets/Espedro-Neptune-Resume.pdf (2026-11-13 version).
+// The web summary uses the owner's newer wording (opens with "AI Engineer", ends at "AI applications").
 // When the resume changes, update this object AND replace the PDF.
 // Deliberate differences from the PDF: location is "USA, FL", no phone number, GitHub added.
 const resume = {
@@ -45,17 +46,15 @@ const resume = {
     { role: "Senior Graphic & Web Designer", org: "Media Innovation", when: "Mar 2012 – Mar 2021", points: ["Designed and maintained client WordPress sites from wireframe to launch, and built brand identities with marketing teams over nine years."] },
   ],
   skills: [
-    { name: "AI & LLM", proof: "Proof: Dessalines (MCP, guardrails), Kominote Konbit (knowledge-grounded assistant)",
-      items: ["Claude & OpenAI APIs", "Prompt & system design", "Tool calling", "MCP integrations", "LiteLLM", "OpenRouter", "Self-hosted agents (OpenClaw)", "Knowledge-grounded assistants", "Conversational UX"] },
-    { name: "AI · in training", proof: "AI Engineering, 4Geeks Academy", training: true,
-      items: ["Python", "RAG", "Vector databases", "FastAPI", "Multi-agent workflows", "Guardrails", "n8n", "WebSockets", "Docker", "Testing", "LLM app security (OWASP)"] },
+    { name: "AI Engineering", proof: "Proof: Dessalines (MCP, guardrails), Kominote Konbit (knowledge-grounded assistant)",
+      items: ["Claude & OpenAI APIs", "Prompt & system design", "MCP integrations", "LiteLLM", "OpenRouter", "Self-hosted agents (OpenClaw)", "Python", "RAG", "Vector databases", "Agents with tool calling & guardrails", "Multi-agent workflows", "FastAPI", "REST APIs", "n8n", "WebSockets", "Async queues", "Data pipelines & telemetry", "Docker", "Testing", "LLM app security (OWASP)"] },
     { name: "Engineering", proof: "Proof: FootLakay, AI BOS CRM",
       items: ["JavaScript", "React", "Node.js", "Express", "Vite", "Tailwind CSS", "Supabase (PostgreSQL, Auth, RLS, Edge Functions, pg_cron)", "REST APIs", "Stripe", "WordPress", "Linux VPS / SSH"] },
     { name: "Product & UX", proof: "Proof: BelieverHub, VotPam",
       items: ["User research", "Usability testing", "Information architecture", "Prototyping", "Design systems & tokens", "WCAG accessibility", "Multilingual UX", "Figma", "Adobe CC"] },
   ],
   education: [
-    { what: "AI Engineering", where: "4Geeks Academy", inProgress: true },
+    { what: "AI Engineering", where: "4Geeks Academy" },
     { what: "Artificial Intelligence Certification", where: "BrainStation" },
     { what: "UX/UI Design · Web Development", where: "Ironhack" },
     { what: "Electronic Design", where: "CFP d’Haïti" },
@@ -190,10 +189,6 @@ export default function Resume() {
         <section className="rs-section" aria-labelledby="rs-skills">
           <div className="rs-section-head reveal">
             <h2 id="rs-skills" className="rs-label">Skills</h2>
-            <span className="rs-legend">
-              <span><i className="rs-legend-solid" aria-hidden="true" />In production</span>
-              <span><i className="rs-legend-dashed" aria-hidden="true" />In training</span>
-            </span>
           </div>
           {resume.skills.map(group => <div key={group.name} className="rs-skill reveal">
             <div className="rs-skill-head">
