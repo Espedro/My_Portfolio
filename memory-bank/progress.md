@@ -121,6 +121,25 @@ Update this file at the end of every work session: what changed, verification re
 - Owner review, round 1: "How I use AI" is now centered on wide screens (`.ai-sticky` justify-content center, diagram column fixed at 700px). More work card links stay white on hover (global hover is accent blue).
 - [ ] Owner review of the local build, then merge `homepage-redesign` → `master` and redeploy the zip.
 
+### 2026-11-13 — New case-study template + header (branch `homepage-redesign`)
+- Owner sent `CaseStudy-AIBOS.dc.html` and wants all 8 case studies like it. They also want its header with the current links numbered on the right, plus "Let's talk" and a round theme button.
+- Template: `src/CaseStudy.jsx` + `src/case-study.css`.
+  - Each page keeps its `study` object. New optional fields only render when present: `approachTitle`, `structure.figure`, `decisionsTitle`, `decisionsShot` (with pins), `decisions[].instead`, `aiBehavior`, `buildChips`, `visual.image`, `visual.swatches`, `outcomeTitle`, `learned`.
+  - The prototype's placeholders ("SCREENSHOT TO ADD", "METRIC TO ADD", "[Your lesson]") are never rendered.
+- AI BOS CRM: 3 screenshots captured from the live landing page (`ai-bos-crm-dashboard.jpg`, `-steps.jpg`, `-features.jpg`), plus the prototype's copy.
+- CLS fixes:
+  - an Arial fallback font sized to Archivo (`size-adjust: 98.6%`);
+  - titles break before the last word;
+  - on phones the laptop sits above the hero text.
+  - Result: Kominote mobile CLS went from 0.33 to 0.001.
+- Removed 162 unused rules from react.css (old homepage + old case template). `/resume` still uses a few `cs-*` classes.
+- Lighthouse:
+  - AI BOS: mobile 85/100/100/100, desktop 100/100/100/100;
+  - VotPam: mobile 94/100/100/100;
+  - Kominote: mobile 90/100/100/100;
+  - home: desktop 98/100/100/100.
+- [ ] Owner to write "What I learned" for each case study (field `learned`) and add real metrics when available.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
