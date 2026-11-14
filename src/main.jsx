@@ -120,9 +120,12 @@ function App() {
   useEffect(() => {
     const update = () => {
       const links = [...document.querySelectorAll('.topnav a[href*="#"]')];
-      const current = location.pathname === '/' || location.pathname === '/index.html'
+      let current = location.pathname === '/' || location.pathname === '/index.html'
         ? links.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean).filter(section => section.getBoundingClientRect().top <= 120).pop()?.id
         : null;
+      // At the very bottom of the homepage the last section (Contact) can't reach the top: mark it anyway.
+      const atBottom = current && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      if (atBottom && document.getElementById('contact')) current = 'contact';
       links.forEach(link => {
         const active = Boolean(current && link.hash === `#${current}`);
         link.classList.toggle('is-active', active);
@@ -145,7 +148,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
-    <Footer />
+    {/* The homepage has its own footer row inside Contact. */}
+    {location.pathname === '/' || location.pathname === '/index.html' ? null : <Footer />}
   </>;
 }
 

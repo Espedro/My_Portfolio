@@ -4,22 +4,28 @@
    the same palette, type and corners as the homepage.
    ========================================================= */
 :root {
-  --bg: #F4F4F1;
-  --ink: #121212;
-  --muted: #55554F;
-  --body2: #3E3E3A;
-  --rule: #D6D6D0;
-  --ph: #E4E4DE;
-  --band: #121212;
-  --band-ink: #F4F4F1;
-  --band-muted: #D4D4CE;
-  --band-rule: #4A4A46;
-  --accent: #B3301A;
+  --bg: #f6f6f1;
+  --ink: #141413;
+  --muted: #5f5f58;
+  --body: #3d3d38;
+  --body2: var(--body);
+  --rule: #dcdcd4;
+  --ph: #e4e4dc;
+  --band: #141413;
+  --band-ink: #f6f6f1;
+  --band-muted: #d4d4ce;
+  --band-rule: #4a4a46;
+  --accent: #2563eb;
+  --accent-soft: #e8f0ff;
+  --accent-ink: #1e4fd0;
+  --sub: #5e6858;
+  --dim: #e4e4dc;
+  --line-2: #cfcfc6;
 
   /* legacy aliases used by styles.css (case-study pages) */
   --paper: var(--bg);
   --soft: var(--ph);
-  --surface: #FAFAF7;
+  --surface: #ffffff;
   --line: var(--rule);
   --teal: var(--ink);
   --teal-dark: #000;
@@ -36,17 +42,22 @@
 
 :root[data-theme="dark"] {
   --bg: #121211;
-  --ink: #EDEDE8;
-  --muted: #A3A39C;
-  --body2: #C9C9C3;
-  --rule: #2E2E2B;
-  --ph: #1F1F1D;
-  --band: #1E1E1C;
-  --band-ink: #EDEDE8;
-  --band-muted: #C9C9C3;
-  --band-rule: #3A3A36;
-  --accent: #F2694D;
-  --surface: #1A1A18;
+  --ink: #edede8;
+  --muted: #a3a39c;
+  --body: #c9c9c3;
+  --rule: #2e2e2b;
+  --ph: #1f1f1d;
+  --band: #1e1e1c;
+  --band-ink: #edede8;
+  --band-muted: #c9c9c3;
+  --band-rule: #3a3a36;
+  --accent: #4f8cff;
+  --accent-soft: #14213d;
+  --accent-ink: #a9c6ff;
+  --sub: #9aa394;
+  --dim: #2a2a27;
+  --line-2: #3a3a36;
+  --surface: #1a1a18;
   --teal-dark: #fff;
 }
 

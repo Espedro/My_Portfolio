@@ -1,9 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { BrandMark, ThemeToggle } from "./components.jsx";
 import { profile } from "./pages.js";
 
 export default function Header() {
-  return (<header className="topbar" data-header={true}>
+  // On the homepage the header floats over the pinned stage (transparent, then glass). See src/home/ui.jsx.
+  const { pathname } = useLocation();
+  const overlay = pathname === "/" || pathname === "/index.html";
+  return (<header className={overlay ? "topbar topbar--overlay" : "topbar"} data-header={true}>
 <div className="topbar-inner">
 <Link className="topbar-brand" to="/#top" aria-label="Espedro Neptune, home">
 <BrandMark />
