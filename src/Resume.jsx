@@ -30,8 +30,8 @@ const resume = {
       text: "Shipped a four-language platform with live fixtures, automated scoring (Edge Functions, pg_cron), a social Fan Zone, sponsor management and an AI chatbot persona." },
     { slug: "votpam", kind: "Civic information & opinion polls", stack: "Figma design system · Web app",
       text: "Designed candidate profiles, a news feed and poll results on a dedicated design system built for the platform." },
-    { slug: "believerhub", kind: "Faith-based community platform", stack: "User research → Production",
-      text: "Took the product from user research to production; its architecture became the foundation for Kominote Konbit." },
+    { slug: "believerhub", kind: "Faith-based community platform", ai: true, stack: "User research → Production",
+      text: "Took the product from user research to production, including an AI Bible assistant that cites real verses and defers to pastors; its architecture became the foundation for Kominote Konbit." },
   ],
   alsoShipped: ["agrodoc", "maket-lakay", "media-innovation"],
   experience: [
