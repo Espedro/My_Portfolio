@@ -157,6 +157,18 @@ Update this file at the end of every work session: what changed, verification re
 
 - 2026-11-13: owner confirmed the 3 deliberate web/PDF differences: no phone on the site, GitHub link kept, BelieverHub AI tag kept. **Merged `homepage-redesign` into `master`** (08d5eb7) and pushed. New `portfolio-dist.zip` built from master. [x] Owner uploaded it on 2026-11-13. Verified live: home, /resume and case pages render with no errors; assets, robots, sitemap, OG image and the latest PDF return 200; retired URLs redirect to /#work; no source files exposed (unknown .jsx/.md paths fall back to index.html, .js/.json return 404).
 
+### 2026-11-13 — AI Engineer positioning (branch `ai-engineer-proof`)
+- Assessment given to the owner:
+  - strong for AI Product Engineer, Applied AI and Design Engineer (AI) roles;
+  - weak for pure AI Engineer roles: no system-level write-ups, no code or eval proof, Dessalines has no case study.
+- Template: optional `aiArchitecture` chapter (flow, specs, optional evals), optional `repoUrl`, and pages without `liveUrl` (for Dessalines).
+- "AI architecture" chapters added from the owner's facts only:
+  - Odette: Claude, Konbit documents given as .md, the model cites where it found the answer, "contact an admin" fallback;
+  - BelieverHub assistant: Claude connected to a Bible API, Bible questions only, always gives the reference.
+  - No RAG/embeddings claimed.
+- [ ] Dessalines case study: waiting for architecture details, a screenshot, and whether the repo can be public.
+- [ ] Suggested: a small Python eval for Odette (30–50 questions) as a public repo, to add real numbers and Python/eval proof.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).

@@ -54,6 +54,21 @@ const study = {
   gallery: [
     { src: "/assets/believerhub-live.jpg", alt: "BelieverHub fellowship dashboard", caption: "The live product: community navigation, prayer prompts, the verse system, group activity, events and study flows." },
   ],
+  // Technical view of the AI Bible assistant. Facts from the owner (2026-11-13); nothing added.
+  aiArchitecture: {
+    title: "Bible questions only, with the reference every time.",
+    flow: [
+      { title: "Member question", sub: "about the Bible" },
+      { title: "Claude", sub: "connected to a Bible API", ai: true },
+      { title: "Answer + biblical reference", sub: "book, chapter, verse" },
+    ],
+    specs: [
+      { label: "Model", value: "Claude." },
+      { label: "Data source", value: "A Bible API connected to the assistant." },
+      { label: "Scope", value: "It answers only questions about the Bible." },
+      { label: "Citations", value: "Every answer gives the biblical reference." },
+    ],
+  },
   built: [
     "Design tokens for color, type scale, spacing, radii, light mode and dark mode.",
     "A complete, navigable HTML model of every product surface as the visual source of truth for development.",
