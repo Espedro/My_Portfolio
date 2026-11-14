@@ -99,7 +99,7 @@
   left: 0;
   width: 1px;
   height: 1px;
-  scroll-margin-top: -96px; /* cancel html scroll-padding: land exactly on the first case study */
+  scroll-margin-top: -104px; /* cancel html scroll-padding: land exactly on the first case study */
 }
 
 .hc-stage {
@@ -511,7 +511,10 @@
 }
 
 /* Compact stage (< 1024px): laptop centered on top, copy underneath */
-.hc-stage.is-compact .hc-hero-inner { padding-top: 104px; }
+.hc-stage.is-compact .hc-hero-inner { padding-top: 136px; }
+@media (max-width: 1023px) {
+  .hc-anchor { scroll-margin-top: -128px; }
+}
 .hc-stage.is-compact .hc-hero-main { justify-content: flex-start; padding-top: 28px; gap: 22px; }
 .hc-stage.is-compact .hc-labels {
   position: absolute;
@@ -537,7 +540,6 @@
 .hc-stage.is-compact .hc-index { bottom: 14px; gap: 8px; }
 
 @media (max-width: 640px) {
-  .hc-stage.is-compact .hc-hero-inner { padding-top: 132px; }
   .hc-stage .hc-hero-top { display: none; }
   .hc-hero-bottom { min-height: 56px; font-size: 12px; }
   .hc-hero-bottom span[aria-hidden] { display: none; }
@@ -548,7 +550,6 @@
     overflow: hidden;
     clip: rect(0 0 0 0);
   }
-  .hc-anchor { scroll-margin-top: -120px; }
 }
 
 /* Reduced motion: static hero + one panel per case study */
@@ -607,7 +608,7 @@
 @media (max-width: 1023px) {
   .hs-e { display: none; }
   .hs-panel-inner { grid-template-columns: 1fr; gap: 32px; }
-  .hs-hero .hc-hero-inner { padding-top: 132px; }
+  .hs-hero .hc-hero-inner { padding-top: 136px; }
 }
 
 /* =========================================================

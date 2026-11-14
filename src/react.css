@@ -62,7 +62,7 @@
 }
 
 html {
-  scroll-padding-top: 96px; /* clears the sticky header */
+  scroll-padding-top: 104px; /* clears the 88px header */
 }
 
 body {
@@ -120,26 +120,28 @@ a:hover {
 }
 
 .topbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 40px;
-  min-height: 72px;
+  position: relative; /* keeps the .sr-only text in "Let's talk" inside the header */
+  padding: 0 56px;
+  min-height: 88px;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px 32px;
+  gap: 8px 40px;
 }
 
 .topbar-brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.01em;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-transform: uppercase;
   text-decoration: none;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 /* Logo mark (kept from the original site) */
@@ -168,11 +170,14 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 28px;
+  gap: 4px 32px;
 }
 
+.topbar-right { gap: 4px 24px; }
+
 .topnav {
-  font-size: 16px;
+  font-size: 14px;
+  margin-right: 8px;
 }
 
 .topnav a {
@@ -180,12 +185,23 @@ a:hover {
   padding: 12px 0;
 }
 
-.topnav a.is-active {
-  color: var(--accent);
+.topnav-num {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-right: 6px;
 }
 
-.topnav .topnav-resume {
-  text-decoration: underline;
+.topbar-talk {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.topnav a.is-active {
+  color: var(--accent);
 }
 
 .topnav .topnav-resume.active {
@@ -338,14 +354,14 @@ a:hover {
   justify-content: center;
   padding: 0;
   background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--rule);
-  border-radius: 2px;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 50%;
   cursor: pointer;
 }
 
 .theme-btn:hover {
-  border-color: var(--ink);
+  background: color-mix(in srgb, currentColor 10%, transparent);
 }
 
 /* ---------- Footer ---------- */
@@ -1024,6 +1040,18 @@ a:hover {
   color: var(--muted);
 }
 
+/* ---------- Header below 1024px: brand + Let's talk + theme on row 1, links on row 2 ---------- */
+@media (max-width: 1023px) {
+  .topbar-inner { padding: 8px 20px; min-height: 0; row-gap: 0; column-gap: 16px; }
+  .topbar-right { display: contents; }
+  .topbar-brand { flex: 1 1 auto; }
+  .topbar-talk { order: 1; }
+  .theme-btn { order: 2; }
+  .topnav { order: 3; width: 100%; margin-right: 0; gap: 0 24px; }
+  .topnav a { padding: 10px 0; }
+  html { scroll-padding-top: 128px; }
+}
+
 /* ---------- Small screens ---------- */
 @media (max-width: 640px) {
   .wrap,
@@ -1033,14 +1061,8 @@ a:hover {
     padding-right: 20px;
   }
 
-  /* Header: logo + theme button on one row, links on the next. */
-  .topbar-inner { padding-top: 8px; padding-bottom: 8px; row-gap: 0; }
-  .topbar-right { display: contents; }
-  .topbar-brand { flex: 1 1 auto; }
-  .theme-btn { order: 1; }
-  .topnav { order: 2; width: 100%; gap: 0 18px; font-size: 15px; }
-  .topnav a { padding: 10px 0; }
-  html { scroll-padding-top: 120px; }
+  .topnav-num { display: none; }
+  .topnav { gap: 0 18px; font-size: 15px; }
 
   .home-hero { padding-top: 64px; padding-bottom: 56px; }
   .home-glance { padding-bottom: 80px; }
