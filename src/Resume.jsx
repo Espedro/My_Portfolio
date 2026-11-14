@@ -12,7 +12,7 @@ const resume = {
   title: "AI Engineer · UX Engineer · Product Designer",
   updated: "Updated November 2026",
   summaryLead: "Product Designer and UX Engineer with a strong background in designing, building, and shipping digital products, now expanding into AI engineering",
-  summaryRest: "Builds AI-powered applications end to end, including LLM-powered assistants, knowledge-base integrations, RAG-based workflows, and a self-hosted AI agent connected to Gmail, Calendar, and Docs through MCP with human approval for write actions. Experienced in context engineering, database-backed AI applications, and multilingual platforms supporting Haitian Creole, French, and English.",
+  summaryRest: "Builds AI-powered applications end to end, including LLM-powered assistants, knowledge-base integrations, RAG-based workflows, and a self-hosted AI agent connected to Gmail, Calendar, and Docs through MCP with human approval for write actions. Experienced in context engineering, database-backed AI applications.",
   snapshot: [
     { value: "8", text: "live products, end to end" },
     { value: "3", text: "AI products in production", accent: true },
