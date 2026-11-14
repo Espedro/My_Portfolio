@@ -102,6 +102,24 @@ Update this file at the end of every work session: what changed, verification re
   - **PDF:** still says Orlando and `linkedin.com/in/espedroneptune`.
   - `public/assets/ESPEDRONEPTUNE_Resume.docx` is the OLD resume and is still publicly reachable (not linked).
 
+### 2026-11-13 — Homepage redesign (branch `homepage-redesign`, not deployed)
+- Owner sent `prototype-reference.html` and a full spec. Owner decisions: keep the **current nav** (Work · About · AI · Contact · Resume); footer says **USA, FL**, not Orlando; **blue accent site-wide**; every E uses the **real logo shape**; use the prototype's hero copy.
+- Built in `src/home/` (see context.md). Scroll lengths (H = 100vh): stage 605vh (hold 0.28 → morph 1.0 → 3 × 1.1 → end 0.47), More work 100vh + track width, How I use AI 300vh, How I work 278vh; the rest isn't pinned.
+- Engineering: there's no React render per scroll frame. Everything runs on MotionValues (`useScroll` / `useTransform`), transforms, opacity and clip-path strings. State changes only at thresholds (active project, active principle, reached step). The E landing targets come from a hidden "ghost" laptop in the landing pose, measured with getBoundingClientRect on mount and resize.
+- Below 1024px: the laptop stays centered with the copy underneath and the wipe coming from the bottom. More work uses native scroll-snap. AI and process are stacked and use IntersectionObserver.
+- Reduced motion: static hero, one colored panel per case study, no loops, no pulse, no marquee.
+- Accessibility: inactive case-study copy is `inert` + `aria-hidden`. Dimmed text (AI principles, process steps, diagram) uses full-ink text at 60% opacity instead of 28–30%, so it still passes 4.5:1. Color layers that haven't started their wipe are set to opacity 0, because axe ignores clip-path.
+- Bugs found and fixed while testing:
+  - `.sr-only` text in More work cards escaped the scroller and made the mobile layout viewport 1536px wide (fix: `.mw-card { position: relative }`);
+  - `react.css` loads after `home.css`, so the header overlay needed higher specificity;
+  - the header height was read before the header was mounted;
+  - the contact mask clipped the "g" descender;
+  - global `img { max-width: 100% }` broke the More work parallax.
+- Lighthouse: Home desktop 100/100/100/100. Home mobile 87/100/100/100 (LCP 3.3s; was 90–93). VotPam mobile 95/100/100/100. No horizontal scroll at 375/390/768.
+- JS bundle: 108 → 160 KB gzip (+51 KB, mostly motion, already using LazyMotion).
+- Known: at the E hand-off the landed tiles are 2–3px larger than the real logo, because getBoundingClientRect returns the axis-aligned box around slanted blocks (the prototype has the same behavior).
+- [ ] Owner review of the local build, then merge `homepage-redesign` → `master` and redeploy the zip.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
