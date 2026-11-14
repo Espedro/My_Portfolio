@@ -7,7 +7,8 @@ import "./resume.css";
 // Web version of the resume, laid out from the owner's Resume.dc.html.
 // Content comes from public/assets/Espedro-Neptune-Resume.pdf (2026-11-13 evening version, summary = version A).
 // When the resume changes, update this object AND replace the PDF.
-// 2026-11-13: Kominote and BelieverHub lines + AI Engineering skills (no "vector databases") updated here first;
+// 2026-11-13: Kominote and BelieverHub lines + "RAG (document retrieval)" updated here first. "Vector databases" kept:
+// the owner is adding one to one of their apps.
 // the owner is copying the same lines into the PDF.
 // Deliberate differences from the PDF: location is "USA, FL", no phone number, GitHub added.
 const resume = {
@@ -49,7 +50,7 @@ const resume = {
   ],
   skills: [
     { name: "AI Engineering", proof: "Proof: Dessalines (MCP, guardrails), Kominote Konbit (knowledge-grounded assistant)",
-      items: ["Claude & OpenAI APIs", "Prompt & system design", "MCP integrations", "LiteLLM", "OpenRouter", "Self-hosted agents (OpenClaw)", "Python", "RAG (document retrieval)", "Agents with tool calling & guardrails", "Multi-agent workflows", "FastAPI", "REST APIs", "n8n", "WebSockets", "Async queues", "Data pipelines & telemetry", "Docker", "Testing", "LLM app security (OWASP)"] },
+      items: ["Claude & OpenAI APIs", "Prompt & system design", "MCP integrations", "LiteLLM", "OpenRouter", "Self-hosted agents (OpenClaw)", "Python", "RAG (document retrieval)", "Vector databases", "Agents with tool calling & guardrails", "Multi-agent workflows", "FastAPI", "REST APIs", "n8n", "WebSockets", "Async queues", "Data pipelines & telemetry", "Docker", "Testing", "LLM app security (OWASP)"] },
     { name: "Engineering", proof: "Proof: FootLakay, AI BOS CRM",
       items: ["JavaScript", "React", "Next.js", "Node.js", "Express", "Vite", "Tailwind CSS", "Supabase (PostgreSQL, Auth, RLS, Edge Functions, pg_cron)", "REST APIs", "Stripe", "WordPress", "Linux VPS / SSH"] },
     { name: "Product & UX", proof: "Proof: BelieverHub, VotPam",
