@@ -1,0 +1,781 @@
+/* =========================================================
+   Case-study template (src/CaseStudy.jsx), from CaseStudy-AIBOS.dc.html.
+   Project colors come in as --proj (main) and --proj-a (light accent).
+   ========================================================= */
+.cs2 {
+  --pad: 56px;
+  --proj-acc: var(--proj);                                   /* light theme: the dark project color passes 4.5:1 */
+  --proj-soft: color-mix(in srgb, var(--proj) 9%, var(--bg));
+  --hero-ink: #f6f6f1;
+  overflow-x: clip;
+}
+
+:root[data-theme="dark"] .cs2 {
+  --proj-acc: var(--proj-a);                                 /* dark theme: the light accent */
+  --proj-soft: color-mix(in srgb, var(--proj) 45%, var(--bg));
+}
+
+@media (max-width: 1023px) {
+  .cs2 { --pad: 20px; }
+}
+
+.cs2-dot { color: var(--proj-acc); }
+
+.cs2-small {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cs2-acc { color: var(--proj-acc); }
+
+/* Reading progress */
+.cs2-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  background: var(--proj-acc);
+  transform-origin: left;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* ---------- Hero ---------- */
+.cs2-hero {
+  position: relative;
+  min-height: max(100vh, 720px);
+  box-sizing: border-box;
+  padding: 150px var(--pad) 170px;
+  overflow: hidden;
+  background: var(--proj);
+  color: var(--hero-ink);
+}
+
+.cs2-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 72% 50%, color-mix(in srgb, var(--proj-a) 18%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.cs2-hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(600px, 44vw);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.cs2-hero a { color: var(--hero-ink); }
+.cs2-hero a:hover { color: #fff; opacity: .8; }
+.cs2-hero :focus-visible { outline-color: #fff; }
+
+.cs2-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  width: fit-content;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.cs2-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 246, 241, 0.92);
+}
+
+.cs2-hero-acc { color: var(--proj-a); }
+
+.cs2-title {
+  margin: 0;
+  font-size: clamp(56px, 7.8vw, 112px);
+  line-height: 0.94;
+  font-weight: 450;
+  letter-spacing: -0.06em;
+}
+
+.cs2-summary {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.55;
+  color: rgba(246, 246, 241, 0.92);
+}
+
+.cs2-hero-laptop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cs2-scene {
+  position: absolute;
+  inset: 0;
+  perspective: 1900px;
+  perspective-origin: 70% 45%;
+}
+
+.cs2-meta {
+  position: absolute;
+  z-index: 1;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: 48px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  border-top: 1px solid rgba(246, 246, 241, 0.25);
+  padding-top: 22px;
+}
+
+.cs2-meta dt {
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 246, 241, 0.8);
+}
+
+.cs2-meta dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.cs2-status { display: flex; align-items: center; gap: 10px; }
+.cs2-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex: none; }
+
+@media (max-width: 1023px) {
+  .cs2-hero { min-height: 0; padding: 150px var(--pad) 40px; display: flex; flex-direction: column; }
+  .cs2-hero-copy { width: auto; gap: 20px; }
+  .cs2-summary { font-size: 17px; }
+  /* Laptop first on small screens: its position then never depends on text that rewraps when Archivo loads (CLS). */
+  .cs2-hero-laptop { position: relative; inset: auto; order: -1; margin: -8px 0 24px; }
+  .cs2-scene { perspective-origin: 50% 40%; }
+  .cs2-meta { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+}
+
+/* ---------- Body: chapter rail + reading column ---------- */
+.cs2-body {
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+  padding: 0 var(--pad);
+  align-items: flex-start;
+}
+
+.cs2-rail {
+  position: sticky;
+  top: 120px;
+  width: 230px;
+  flex: none;
+  padding-top: 96px;
+  display: flex;
+  gap: 18px;
+}
+
+.cs2-rail-line {
+  position: relative;
+  width: 2px;
+  background: var(--rule);
+  border-radius: 2px;
+}
+
+.cs2-rail-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--proj-acc);
+  border-radius: 2px;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.cs2-rail ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs2-rail button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.cs2-rail button:hover,
+.cs2-rail button.is-active { color: var(--ink); }
+.cs2-rail button.is-active { font-weight: 500; }
+
+.cs2-rail-num {
+  width: 18px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.cs2-rail button.is-active .cs2-rail-num { color: var(--proj-acc); }
+
+.cs2-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 860px;
+  padding: 96px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.cs2-chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  scroll-margin-top: 120px;
+}
+
+.cs2-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cs2-label:focus { outline: none; }
+
+.cs2-statement {
+  margin: 0;
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.04;
+  font-weight: 450;
+  letter-spacing: -0.05em;
+}
+
+.cs2-lead {
+  margin: 0;
+  font-size: clamp(19px, 1.6vw, 22px);
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.cs2-text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+/* Frames for screenshots */
+.cs2-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.cs2-frame img { display: block; width: 100%; height: auto; }
+
+.cs2-figure {
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs2-figure figcaption { font-size: 13px; color: var(--muted); }
+
+/* 01 At a glance */
+.cs2-cards3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cs2-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs2-card-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cs2-card-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.cs2-card.is-proj {
+  background: var(--proj);
+  border-color: var(--proj);
+  color: #f6f6f1;
+}
+
+.cs2-card.is-proj .cs2-small { color: rgba(246, 246, 241, 0.9); }
+.cs2-card.is-proj .cs2-card-text { color: rgba(246, 246, 241, 0.9); }
+
+.cs2-did h3 {
+  margin: 12px 0 14px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cs2-list2 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 32px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.cs2-list2 li { border-top: 1px solid var(--rule); padding-top: 12px; }
+
+/* 02 Challenge */
+.cs2-quote {
+  margin: 16px 0 0;
+  padding: 36px 40px;
+  border-radius: 22px;
+  background: var(--proj-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cs2-quote-text {
+  margin: 0;
+  font-size: clamp(30px, 3.1vw, 44px);
+  line-height: 1.08;
+  font-weight: 450;
+  letter-spacing: -0.04em;
+}
+
+/* 03 Approach */
+.cs2-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 16px;
+}
+
+.cs2-principle {
+  border-top: 2px solid var(--proj-acc);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs2-principle h3 { margin: 0; font-size: 20px; font-weight: 500; }
+.cs2-principle p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--body); }
+
+/* Generic rows (extra sections, built list) */
+.cs2-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.cs2-rows li { border-top: 1px solid var(--rule); padding: 14px 0; }
+.cs2-rows li:last-child { border-bottom: 1px solid var(--rule); }
+.cs2-rows strong { color: var(--ink); font-weight: 600; }
+
+/* 04 Structure */
+.cs2-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  gap: 40px;
+}
+
+.cs2-steps li {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* arrow between steps */
+.cs2-steps li:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.cs2-step-num { font-size: 13px; color: var(--proj-acc); }
+.cs2-steps h3 { margin: 0; font-size: 24px; font-weight: 500; }
+.cs2-steps p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--body); }
+
+.cs2-steps li.is-proj { background: var(--proj); border-color: var(--proj); color: #f6f6f1; }
+.cs2-steps li.is-proj .cs2-step-num { color: rgba(246, 246, 241, 0.9); }
+.cs2-steps li.is-proj p { color: rgba(246, 246, 241, 0.9); }
+
+/* 05 Decisions */
+.cs2-annotated .cs2-frame { background: #eef0f5; }
+
+.cs2-pin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border-radius: 50%;
+  background: var(--proj);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--proj) 25%, transparent);
+  transition: transform .25s ease;
+}
+
+.cs2-annotated:hover .cs2-pin { transform: scale(1.12); }
+
+.cs2-decisions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cs2-decisions li {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px 24px;
+  border-top: 1px solid var(--rule);
+  padding: 26px 0;
+}
+
+.cs2-decisions li:last-child { border-bottom: 1px solid var(--rule); }
+
+.cs2-num-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--proj);
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs2-decision-head { display: flex; flex-direction: column; gap: 8px; }
+.cs2-decision-head h3 { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.2; }
+.cs2-instead { margin: 0; font-size: 13px; color: var(--muted); }
+.cs2-decision-text { margin: 0; font-size: 15px; line-height: 1.55; color: var(--body); }
+.cs2-decision-shot { grid-column: 2 / -1; }
+
+/* 06 How the AI behaves */
+.cs2-flowbox {
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs2-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 60px;
+}
+
+.cs2-flow li {
+  position: relative;
+  min-width: 170px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 1px solid var(--line-2);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.cs2-flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 60px;
+  height: 2px;
+  background: var(--line-2);
+}
+
+.cs2-flow li.is-ai { border: 1.5px solid var(--proj-acc); background: var(--proj-soft); }
+.cs2-flow-sub { font-size: 12px; color: var(--muted); }
+
+.cs2-states {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.cs2-states li { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-2); }
+.cs2-flow-note { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* 07 Built */
+.cs2-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cs2-chips li {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  font-size: 15px;
+}
+
+.cs2-chips li.is-acc { border-color: var(--proj-acc); color: var(--proj-acc); }
+
+/* 08 Visual system */
+.cs2-visual { display: grid; gap: 16px; align-items: stretch; }
+.cs2-visual.has-both { grid-template-columns: 1.6fr 1fr; }
+
+.cs2-swatches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cs2-swatches li {
+  min-height: 96px;
+  border-radius: 14px;
+  border: 1px solid var(--rule);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.cs2-swatches b { font-size: 14px; }
+
+/* 09 Outcome */
+.cs2-cols3 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cs2-cols3 li {
+  border-top: 2px solid var(--proj-acc);
+  padding-top: 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.cs2-live { margin: 0; }
+
+.cs2-live a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 10 Learned */
+.cs2-learned {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.cs2-learned li { display: flex; gap: 18px; border-top: 1px solid var(--rule); padding: 16px 0; }
+.cs2-learned li:last-child { border-bottom: 1px solid var(--rule); }
+.cs2-learned span { color: var(--proj-acc); font-size: 13px; padding-top: 4px; }
+
+/* ---------- Next case study ---------- */
+.cs2-next {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  gap: 40px;
+  align-items: center;
+  margin: 60px var(--pad) 0;
+  padding: 48px;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.cs2-next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--next);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .8s cubic-bezier(.7, 0, .2, 1);
+}
+
+.cs2-next:hover,
+.cs2-next:focus-visible { color: #fff; }
+.cs2-next:hover::before,
+.cs2-next:focus-visible::before { transform: scaleX(1); }
+
+.cs2-next-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: color .5s ease;
+}
+
+.cs2-next .cs2-small { color: inherit; }
+
+.cs2-next-name {
+  font-size: clamp(48px, 6.1vw, 88px);
+  line-height: 0.95;
+  font-weight: 450;
+  letter-spacing: -0.06em;
+}
+
+.cs2-next-dot { color: var(--next); }
+.cs2-next:hover .cs2-next-dot,
+.cs2-next:focus-visible .cs2-next-dot { color: #fff; }
+:root[data-theme="dark"] .cs2-next-dot { color: var(--next-a); }
+
+.cs2-next-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.cs2-next-shot {
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.cs2-next-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ---------- Footer row ---------- */
+.cs2-foot {
+  margin: 56px var(--pad) 0;
+  padding: 12px 0 40px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 28px;
+  font-size: 13px;
+}
+
+.cs2-foot a { color: var(--muted); display: inline-block; padding: 12px 0; }
+.cs2-foot a:hover { color: var(--ink); }
+.cs2-foot nav { display: flex; flex-wrap: wrap; gap: 0 28px; }
+
+/* ---------- Below 1024px ---------- */
+@media (max-width: 1023px) {
+  .cs2-body { display: block; }
+  .cs2-main { padding-top: 72px; gap: 88px; }
+  .cs2-cards3,
+  .cs2-cols3 { grid-template-columns: 1fr; }
+  .cs2-list2,
+  .cs2-grid2 { grid-template-columns: 1fr; }
+  .cs2-steps { grid-template-columns: 1fr; gap: 28px; }
+  .cs2-steps li:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -26px; transform: translateX(-50%); }
+  .cs2-quote { padding: 28px 24px; }
+  .cs2-decisions li { grid-template-columns: 44px minmax(0, 1fr); }
+  .cs2-decision-text,
+  .cs2-decision-shot { grid-column: 2 / -1; }
+  .cs2-flow { flex-direction: column; gap: 28px; }
+  .cs2-flow li:not(:last-child)::after { left: 32px; top: 100%; width: 2px; height: 28px; }
+  .cs2-visual.has-both { grid-template-columns: 1fr; }
+  .cs2-next { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+  .cs2-next-shot { height: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs2-next::before,
+  .cs2-next-copy,
+  .cs2-pin { transition: none; }
+}

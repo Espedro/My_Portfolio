@@ -148,8 +148,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
-    {/* The homepage has its own footer row inside Contact. */}
-    {location.pathname === '/' || location.pathname === '/index.html' ? null : <Footer />}
+    {/* The homepage (Contact) and case studies render their own footer row. */}
+    {location.pathname === '/' || location.pathname === '/index.html' || location.pathname.startsWith('/case-studies/') ? null : <Footer />}
   </>;
 }
 

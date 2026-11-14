@@ -34,6 +34,12 @@
   text-decoration: underline;
 }
 
+.topbar.topbar--overlay.is-over-stage.is-tinted {
+  background: color-mix(in srgb, var(--tint) 86%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+}
+
 .topbar.topbar--overlay.is-glass {
   background: color-mix(in srgb, var(--bg) 84%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
