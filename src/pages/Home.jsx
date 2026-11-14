@@ -1,6 +1,10 @@
 import { LazyMotion, domAnimation } from "motion/react";
 import { useReducedMotion } from "../components.jsx";
 import HeroAndCaseStudies from "../home/HeroAndCaseStudies.jsx";
+import Numbers from "../home/Numbers.jsx";
+import MoreWork from "../home/MoreWork.jsx";
+import WhatIDo from "../home/WhatIDo.jsx";
+import HowIUseAI from "../home/HowIUseAI.jsx";
 import "../home/home.css";
 
 // Homepage (redesign from prototype-reference.html). Each section is its own component in src/home/.
@@ -8,5 +12,9 @@ export default function Home() {
   const reduced = useReducedMotion();
   return <LazyMotion features={domAnimation} strict><main id="main" className="home2">
     <HeroAndCaseStudies reduced={reduced} />
+    <Numbers reduced={reduced} />
+    <MoreWork reduced={reduced} />
+    <WhatIDo reduced={reduced} />
+    <HowIUseAI reduced={reduced} />
   </main></LazyMotion>;
 }
