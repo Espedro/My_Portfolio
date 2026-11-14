@@ -155,6 +155,8 @@ Update this file at the end of every work session: what changed, verification re
 
 - 2026-11-13: /resume summary replaced with the owner-approved "version A" (AI Engineer first, 8 live / 3 with AI as proof, human-in-the-loop work). [ ] Owner to copy it into the PDF.
 
+- 2026-11-13: owner confirmed the 3 deliberate web/PDF differences: no phone on the site, GitHub link kept, BelieverHub AI tag kept. **Merged `homepage-redesign` into `master`** (08d5eb7) and pushed. New `portfolio-dist.zip` built from master. [ ] Owner to upload it to public_html (extract at the root, keep .htaccess).
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
