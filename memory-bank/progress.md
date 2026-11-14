@@ -174,6 +174,8 @@ Update this file at the end of every work session: what changed, verification re
 - [ ] Dessalines case study: waiting for architecture details, a screenshot, and whether the repo can be public.
 - [ ] Suggested: a small Python eval for Odette (30–50 questions) as a public repo, to add real numbers and Python/eval proof.
 
+- 2026-11-13: resume aligned with the AI architecture work: "Vector databases" removed, "RAG (document retrieval)", new Kominote and BelieverHub lines (retrieval / tool calling). **Merged `ai-engineer-proof` into `master`.** [ ] Owner to copy the same 3 lines into the PDF, then send it. [ ] Upload the new zip.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
