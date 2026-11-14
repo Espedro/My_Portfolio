@@ -386,7 +386,7 @@ function HeroCopy() {
       <Link className="hc-cta" to="/#work"><span className="hc-cta-ring"><Arrow size={16} /></span>Explore selected work</Link>
     </div>
     <div className="hc-hero-bottom">
-      <span>UX Engineer · Product Designer · AI Product Builder</span>
+      <span>AI Engineer · UX Engineer · Product Designer</span>
       <span aria-hidden="true">Scroll to unfold ↓</span>
     </div>
   </div>;

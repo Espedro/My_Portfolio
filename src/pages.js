@@ -5,7 +5,7 @@ export const SITE_URL = "https://espedroneptune.com";
 
 export const profile = {
   name: "Espedro Neptune",
-  jobTitle: "UX Engineer, Product Designer & AI Product Builder",
+  jobTitle: "AI Engineer · UX Engineer · Product Designer",
   image: "/assets/espedro-portrait.jpg",
   location: "USA, FL",
   calendly: "https://calendly.com/espedroneptune/30min",
@@ -108,8 +108,8 @@ export const retiredSlugs = ["icom", "trackom", "mizikanou", "tribalscale", "blo
 
 export const homePage = {
   path: "/",
-  title: "Espedro Neptune | UX Engineer, Product Designer & AI Product Builder",
-  description: "Espedro Neptune is a UX engineer, product designer, and AI product builder who takes products from research to shipped React code: 8 live products, including AI-powered tools.",
+  title: "Espedro Neptune | AI Engineer · UX Engineer · Product Designer",
+  description: "Espedro Neptune is an AI engineer, UX engineer and product designer who takes products from research to shipped code: 8 live products, including AI-powered tools.",
   image: "/assets/og-image.png",
   Component: Home,
 };
