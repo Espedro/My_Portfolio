@@ -6,14 +6,13 @@ import "./resume.css";
 
 // Web version of the resume, laid out from the owner's Resume.dc.html.
 // Content comes from public/assets/Espedro-Neptune-Resume.pdf (2026-11-13 version).
-// The web summary uses the owner's newer wording (opens with "AI Engineer", ends at "AI applications").
 // When the resume changes, update this object AND replace the PDF.
 // Deliberate differences from the PDF: location is "USA, FL", no phone number, GitHub added.
 const resume = {
   title: "AI Engineer · UX Engineer · Product Designer",
   updated: "Updated November 2026",
-  summaryLead: "AI Engineer, UX Engineer and Product Designer with a strong background in designing, building, and shipping digital products",
-  summaryRest: "Builds AI-powered applications end to end, including LLM-powered assistants, knowledge-base integrations, RAG-based workflows, and a self-hosted AI agent connected to Gmail, Calendar, and Docs through MCP with human approval for write actions. Experienced in context engineering, database-backed AI applications.",
+  summaryLead: "Product Designer and UX Engineer with a strong background in designing, building, and shipping digital products, now expanding into AI engineering",
+  summaryRest: "Builds AI-powered applications end to end, including LLM-powered assistants, knowledge-base integrations, RAG-based workflows, and a self-hosted AI agent connected to Gmail, Calendar, and Docs through MCP with human approval for write actions. Experienced in context engineering, database-backed AI applications, and multilingual platforms supporting Haitian Creole, French, and English.",
   snapshot: [
     { value: "8", text: "live products, end to end" },
     { value: "3", text: "AI products in production", accent: true },
@@ -32,7 +31,7 @@ const resume = {
     { slug: "votpam", kind: "Civic information & opinion polls", stack: "Figma design system · Web app",
       text: "Designed candidate profiles, a news feed and poll results on a dedicated design system built for the platform." },
     { slug: "believerhub", kind: "Faith-based community platform", ai: true, stack: "User research → Production",
-      text: "Took the product from user research to production, including an AI Bible assistant that cites real verses and defers to pastors; its architecture became the foundation for Kominote Konbit." },
+      text: "Took the product from user research to production; its architecture became the foundation for Kominote Konbit." },
   ],
   alsoShipped: ["agrodoc", "maket-lakay", "media-innovation"],
   experience: [
