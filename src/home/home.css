@@ -827,6 +827,13 @@
   color: #fff;
 }
 
+/* Stay white on the colored cards (the global link hover is the accent blue). */
+.mw-links a:hover,
+.mw-links a:focus-visible {
+  color: #fff;
+  opacity: .8;
+}
+
 .mw-progress {
   position: absolute;
   left: var(--pad);
@@ -969,6 +976,7 @@
   box-sizing: border-box;
   padding: clamp(110px, 15.5vh, 140px) var(--pad) 0;
   display: flex;
+  justify-content: center; /* keep copy + diagram centered on wide screens */
   gap: 64px;
 }
 
@@ -1028,7 +1036,7 @@
 
 .ai-diagram-wrap {
   position: relative;
-  flex: 1;
+  flex: 0 1 700px;
   min-width: 0;
   max-width: 700px;
   margin-top: 20px;
@@ -1152,6 +1160,8 @@
 
 /* Stacked (compact) and reduced-motion layout */
 .ai-flow {
+  max-width: 1328px;
+  margin: 0 auto;
   padding: 100px var(--pad);
   display: grid;
   gap: 48px;

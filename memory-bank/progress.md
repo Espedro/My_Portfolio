@@ -118,6 +118,7 @@ Update this file at the end of every work session: what changed, verification re
 - Lighthouse: Home desktop 100/100/100/100. Home mobile 87/100/100/100 (LCP 3.3s; was 90–93). VotPam mobile 95/100/100/100. No horizontal scroll at 375/390/768.
 - JS bundle: 108 → 160 KB gzip (+51 KB, mostly motion, already using LazyMotion).
 - Known: at the E hand-off the landed tiles are 2–3px larger than the real logo, because getBoundingClientRect returns the axis-aligned box around slanted blocks (the prototype has the same behavior).
+- Owner review, round 1: "How I use AI" is now centered on wide screens (`.ai-sticky` justify-content center, diagram column fixed at 700px). More work card links stay white on hover (global hover is accent blue).
 - [ ] Owner review of the local build, then merge `homepage-redesign` → `master` and redeploy the zip.
 
 ### Open items / next steps
