@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 // Intrinsic sizes for every image in /public/assets: lets the browser reserve space (no layout shift).
 const imageSizes = {
   '/assets/ai-bos-crm-live.jpg': [1600, 1000],
+  '/assets/ai-bos-crm-dashboard.jpg': [1600, 694],
+  '/assets/ai-bos-crm-features.jpg': [1600, 620],
+  '/assets/ai-bos-crm-steps.jpg': [1600, 406],
   '/assets/believerhub-landing.jpg': [1600, 700],
   '/assets/believerhub-live.jpg': [1600, 731],
   '/assets/footlakay-live.jpg': [1600, 745],
