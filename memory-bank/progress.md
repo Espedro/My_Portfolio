@@ -153,6 +153,8 @@ Update this file at the end of every work session: what changed, verification re
 - Nav numbers use `--muted` at full opacity (the 60% version failed contrast).
 - Lighthouse desktop 100/100/100/100 on /resume and AI BOS, 99/100/100/100 on home. /resume mobile 99/100/100/100.
 
+- 2026-11-13: /resume summary replaced with the owner-approved "version A" (AI Engineer first, 8 live / 3 with AI as proof, human-in-the-loop work). [ ] Owner to copy it into the PDF.
+
 ### Open items / next steps
 - [ ] Agrodoc: screenshots from inside the app (triage, patient record, prescription, offline state) with demo data, to replace the sign-in-only view.
 - [ ] Review the key-decision quotes and the "What I did" lists of the 3 new case studies (written from the live sites, not from project notes).
